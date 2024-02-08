@@ -5,6 +5,7 @@ import UIKit
 
 // MARK: SceneDelegate
 
+/// Сцен делегат
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
