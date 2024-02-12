@@ -5,6 +5,7 @@ import UIKit
 
 // MARK: SceneDelegate
 
+/// sgsdgsdg
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
