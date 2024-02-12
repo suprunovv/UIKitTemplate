@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F062B71A3EB00B764D2 /* AppDelegate.swift */; };
 		52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */; };
-		52E87F0B2B71A3EB00B764D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F0A2B71A3EB00B764D2 /* ViewController.swift */; };
 		52E87F0E2B71A3EB00B764D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F0C2B71A3EB00B764D2 /* Main.storyboard */; };
 		52E87F102B71A3EE00B764D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */; };
 		52E87F132B71A3EE00B764D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F112B71A3EE00B764D2 /* LaunchScreen.storyboard */; };
+		52E87F712B79629200B764D2 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F702B79629200B764D2 /* PlaylistViewController.swift */; };
+		52E87F732B79752500B764D2 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F722B79752500B764D2 /* PlayerViewController.swift */; };
+		52E87F752B797B8100B764D2 /* TrackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F742B797B8100B764D2 /* TrackModel.swift */; };
+		52E87F822B798A0300B764D2 /* Meh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F812B798A0300B764D2 /* Meh.mp3 */; };
+		52E87F842B798A8D00B764D2 /* Jus bëtter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F832B798A8C00B764D2 /* Jus bëtter.mp3 */; };
+		52E87F862B798AEB00B764D2 /* Poland.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F852B798AEB00B764D2 /* Poland.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		52E87F032B71A3EB00B764D2 /* Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E87F062B71A3EB00B764D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52E87F0A2B71A3EB00B764D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		52E87F0D2B71A3EB00B764D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52E87F122B71A3EE00B764D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52E87F142B71A3EE00B764D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52E87F702B79629200B764D2 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
+		52E87F722B79752500B764D2 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		52E87F742B797B8100B764D2 /* TrackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackModel.swift; sourceTree = "<group>"; };
+		52E87F812B798A0300B764D2 /* Meh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Meh.mp3; sourceTree = "<group>"; };
+		52E87F832B798A8C00B764D2 /* Jus bëtter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jus bëtter.mp3"; sourceTree = "<group>"; };
+		52E87F852B798AEB00B764D2 /* Poland.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Poland.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +68,26 @@
 			children = (
 				52E87F062B71A3EB00B764D2 /* AppDelegate.swift */,
 				52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */,
-				52E87F0A2B71A3EB00B764D2 /* ViewController.swift */,
+				52E87F702B79629200B764D2 /* PlaylistViewController.swift */,
+				52E87F722B79752500B764D2 /* PlayerViewController.swift */,
+				52E87F812B798A0300B764D2 /* Meh.mp3 */,
+				52E87F832B798A8C00B764D2 /* Jus bëtter.mp3 */,
+				52E87F852B798AEB00B764D2 /* Poland.mp3 */,
+				52E87F762B79807E00B764D2 /* playList */,
+				52E87F742B797B8100B764D2 /* TrackModel.swift */,
 				52E87F0C2B71A3EB00B764D2 /* Main.storyboard */,
 				52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */,
 				52E87F112B71A3EE00B764D2 /* LaunchScreen.storyboard */,
 				52E87F142B71A3EE00B764D2 /* Info.plist */,
 			);
 			path = Template;
+			sourceTree = "<group>";
+		};
+		52E87F762B79807E00B764D2 /* playList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = playList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,9 +150,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52E87F862B798AEB00B764D2 /* Poland.mp3 in Resources */,
 				52E87F132B71A3EE00B764D2 /* LaunchScreen.storyboard in Resources */,
+				52E87F822B798A0300B764D2 /* Meh.mp3 in Resources */,
 				52E87F102B71A3EE00B764D2 /* Assets.xcassets in Resources */,
 				52E87F0E2B71A3EB00B764D2 /* Main.storyboard in Resources */,
+				52E87F842B798A8D00B764D2 /* Jus bëtter.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,9 +209,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52E87F0B2B71A3EB00B764D2 /* ViewController.swift in Sources */,
+				52E87F752B797B8100B764D2 /* TrackModel.swift in Sources */,
 				52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */,
+				52E87F732B79752500B764D2 /* PlayerViewController.swift in Sources */,
 				52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */,
+				52E87F712B79629200B764D2 /* PlaylistViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
