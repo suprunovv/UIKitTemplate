@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		447202032B7B4BE0000CAEF9 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52DF95B72B7A50360095027A /* AmaticSC-Bold.ttf */; };
+		447202042B7B4D5C000CAEF9 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52DF95B62B7A50360095027A /* AmaticSC-Regular.ttf */; };
 		4481CB9B2B7AA677008B66DF /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481CB9A2B7AA677008B66DF /* UIColor+extension.swift */; };
 		52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F062B71A3EB00B764D2 /* AppDelegate.swift */; };
 		52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */; };
@@ -168,7 +170,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				447202042B7B4D5C000CAEF9 /* AmaticSC-Regular.ttf in Resources */,
 				52E87F132B71A3EE00B764D2 /* LaunchScreen.storyboard in Resources */,
+				447202032B7B4BE0000CAEF9 /* AmaticSC-Bold.ttf in Resources */,
 				52E87F102B71A3EE00B764D2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

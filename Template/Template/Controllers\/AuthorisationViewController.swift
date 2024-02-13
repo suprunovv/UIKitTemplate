@@ -158,8 +158,9 @@ class AuthorisationViewController: UIViewController {
 
     @objc func loginButtonTapped() {
         let nextViewController = CatalogViewController()
-        nextViewController.modalPresentationStyle = .fullScreen
-        present(nextViewController, animated: false, completion: nil)
+        let navigationController = UINavigationController(rootViewController: nextViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: false, completion: nil)
     }
 
     @objc func passwordVisibleButtonTouched() {
