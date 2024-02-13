@@ -15,6 +15,7 @@ class ButtonCell: UIView {
         return label
     }()
 
+    /// имеджВью
     var imageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(
             x: 31,

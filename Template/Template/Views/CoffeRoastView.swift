@@ -40,12 +40,13 @@ class CoffeRoastView: UIView {
         return button
     }()
 
-    let cancelButton: UIButton = {
-        let button = UIButton(frame: CGRect(x: 20, y: 26, width: 14, height: 14))
-        button.setImage(UIImage(systemName: "xmark"), for: .normal)
-        button.tintColor = .black
-        return button
-    }()
+    /// кнопка закрыть экран
+    let cancelButton = CancelButton(frame: CGRect(
+        x: 20,
+        y: 26,
+        width: 14,
+        height: 14
+    ))
 
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -115,6 +115,23 @@ class DetailControllerView: UIView {
         return button
     }()
 
+    let shareButton: UIButton = {
+        let button = UIButton()
+        button.frame = CGRect(x: 330.55, y: 58.27, width: 22.21, height: 20.18)
+        button.tintColor = .black
+        button.setBackgroundImage(UIImage(systemName: "paperplane.fill"), for: .normal)
+        return button
+    }()
+
+    let backButton: UIButton = {
+        let button = UIButton()
+        button.layer.cornerRadius = button.frame.width / 2
+        button.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
+        button.backgroundColor = .white
+        button.tintColor = .black
+        return button
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setViews()
@@ -134,6 +151,7 @@ class DetailControllerView: UIView {
         addSubview(ingridientsRoastView)
         addSubview(addPriceLabel(price: 100))
         addSubview(orderButton)
+        addSubview(shareButton)
     }
 
     /// метод создает лейбл с ценой
