@@ -202,7 +202,7 @@ class CatalogViewController: UIViewController {
     }
 
     @objc private func coffeButtonTapped() {
-        let detailViewController = DetailViewController()
+        let detailViewController = SmsViewController()
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
