@@ -5,9 +5,6 @@ import UIKit
 
 /// вью экрана с деталями
 class DetailControllerView: UIView {
-    /// массив названий картинок с коффе
-    let coffeImages = ["кофе", "капучино", "латте"]
-
     /// главная имеджВью с картинкой коффе
     let titleImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(
@@ -34,7 +31,7 @@ class DetailControllerView: UIView {
     }()
 
     lazy var coffeSegmentControl: UISegmentedControl = {
-        var segment = UISegmentedControl(items: [
+        let segment = UISegmentedControl(items: [
             "Американо",
             "Капучино",
             "Латте"
@@ -46,31 +43,27 @@ class DetailControllerView: UIView {
             width: 345,
             height: 44
         )
-        segment.addTarget(
-            self,
-            action: #selector(segmentedImage),
-            for: .valueChanged
-        )
         return segment
     }()
 
     /// лейбл с текстом "Модификация"
-    let modificationLabel: UILabel = {
-        let label = UILabel(frame: CGRect(
+    let modificationLabel = UILabel(
+        text: "Модификация",
+        color: .black,
+        aligment: .left,
+        font: .boldSystemFont(ofSize: 18),
+        lines: 1,
+        frame: CGRect(
             x: 15,
             y: 432,
             width: 200,
             height: 30
-        ))
-        label.text = "Модификация"
-        label.textColor = .black
-        label.font = .boldSystemFont(ofSize: 18)
-        return label
-    }()
+        )
+    )
 
     /// кнопка/вьюха с вариантом обжарки
-    var buttonRoastView: ButtonCell = {
-        let button = ButtonCell(frame: CGRect(
+    var buttonRoastView: CustomButtonView = {
+        let button = CustomButtonView(frame: CGRect(
             x: 15,
             y: 482,
             width: 165,
@@ -81,8 +74,8 @@ class DetailControllerView: UIView {
     }()
 
     /// кнопка/вьюха с ингридиентами
-    var ingridientsRoastView: ButtonCell = {
-        let button = ButtonCell(frame: CGRect(
+    var ingridientsRoastView: CustomButtonView = {
+        let button = CustomButtonView(frame: CGRect(
             x: 195,
             y: 482,
             width: 165,
@@ -115,21 +108,23 @@ class DetailControllerView: UIView {
         return button
     }()
 
-    let shareButton: UIButton = {
-        let button = UIButton()
-        button.frame = CGRect(x: 330.55, y: 58.27, width: 22.21, height: 20.18)
-        button.tintColor = .black
-        button.setBackgroundImage(UIImage(systemName: "paperplane.fill"), for: .normal)
-        return button
-    }()
+//    let shareButton: UIButton = {
+//        let button = UIButton()
+//        button.frame = CGRect(x: 330.55, y: 58.27, width: 22.21, height: 20.18)
+//        button.tintColor = .black
+//        button.setBackgroundImage(UIImage(systemName: "paperplane.fill"), for: .normal)
+//        return button
+//    }()
 
-    let backButton: UIButton = {
+    let backButton: UIView = {
+        let view = UIView()
         let button = UIButton()
         button.layer.cornerRadius = button.frame.width / 2
         button.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
         button.backgroundColor = .white
         button.tintColor = .black
-        return button
+        view.addSubview(button)
+        return view
     }()
 
     override init(frame: CGRect) {
@@ -151,7 +146,7 @@ class DetailControllerView: UIView {
         addSubview(ingridientsRoastView)
         addSubview(addPriceLabel(price: 100))
         addSubview(orderButton)
-        addSubview(shareButton)
+        // addSubview(shareButton)
     }
 
     /// метод создает лейбл с ценой
@@ -167,10 +162,5 @@ class DetailControllerView: UIView {
         label.textAlignment = .right
         label.font = .boldSystemFont(ofSize: 18)
         return label
-    }
-
-    /// метод меняет картинку кофе в зависимости от выбранного названия в сегментКонтроллере
-    @objc func segmentedImage() {
-        titleImageView.image = UIImage(named: coffeImages[coffeSegmentControl.selectedSegmentIndex])
     }
 }

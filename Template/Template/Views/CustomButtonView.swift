@@ -1,10 +1,10 @@
-// ButtonCell.swift
+// CustomButtonView.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// универсальная вьюха под кнопку
-class ButtonCell: UIView {
+class CustomButtonView: UIView {
     /// лейбл с текстом
     let textLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 117, width: 165, height: 34))

@@ -15,11 +15,11 @@ class OptionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addTargetSwitch()
+        addTargets()
     }
 
     /// метод добавляет таргет к каждому свитчу
-    func addTargetSwitch() {
+    func addTargets() {
         mainView.milkSwitch.addTarget(
             self,
             action: #selector(testSwit(_:)),
@@ -44,6 +44,11 @@ class OptionsViewController: UIViewController {
             self,
             action: #selector(testSwit(_:)),
             for: .valueChanged
+        )
+        mainView.cancelButton.addTarget(
+            self,
+            action: #selector(goBack),
+            for: .touchUpInside
         )
     }
 
@@ -84,5 +89,10 @@ class OptionsViewController: UIViewController {
             }
         default: break
         }
+    }
+
+    @objc private func goBack() {
+        delegate?.transfer(model: coffeModel)
+        dismiss(animated: true)
     }
 }

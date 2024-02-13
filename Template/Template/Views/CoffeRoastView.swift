@@ -6,18 +6,19 @@ import UIKit
 /// вью экрана с выбором обжарки
 class CoffeRoastView: UIView {
     /// заглавный лейбл
-    private let titleLabel: UILabel = {
-        let label = UILabel(frame: CGRect(x: 40, y: 53, width: 294, height: 30))
-        label.text = "Уточните обжарку зеренъ"
-        label.textColor = .black
-        label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 18)
-        return label
-    }()
+    private let titleLabel = UILabel(text: "Уточните обжарку зеренъ",
+                                     color: .black,
+                                     aligment: .center,
+                                     font: .boldSystemFont(ofSize: 18),
+                                     lines: 1,
+                                     frame: CGRect(x: 40,
+                                                   y: 53,
+                                                   width: 294,
+                                                   height: 30))
 
     /// имеджВью/кнопка темной обжарки
-    var blackButtonRoastView: ButtonCell = {
-        let button = ButtonCell(frame: CGRect(
+    var blackButtonRoastView: CustomButtonView = {
+        let button = CustomButtonView(frame: CGRect(
             x: 15,
             y: 102,
             width: 165,
@@ -28,8 +29,8 @@ class CoffeRoastView: UIView {
     }()
 
     /// имеджВью/кнопка светлой обжарки
-    var whiteButtonRoastView: ButtonCell = {
-        let button = ButtonCell(frame: CGRect(
+    var whiteButtonRoastView: CustomButtonView = {
+        let button = CustomButtonView(frame: CGRect(
             x: 195,
             y: 102,
             width: 165,

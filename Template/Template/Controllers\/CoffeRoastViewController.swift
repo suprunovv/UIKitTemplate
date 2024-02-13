@@ -37,7 +37,6 @@ class CoffeRoastViewController: UIViewController {
         delegate?.transfer("темнаяОбж", text: "Темная\nобжарка")
         mainView.blackButtonRoastView.layer.borderWidth = 1
         mainView.whiteButtonRoastView.layer.borderWidth = 0
-        dismiss(animated: true)
     }
 
     /// метод для передачи светлой обжарки делегату
@@ -45,7 +44,6 @@ class CoffeRoastViewController: UIViewController {
         delegate?.transfer("светлаяОбж", text: "Свѣтлая\nобжарка")
         mainView.blackButtonRoastView.layer.borderWidth = 0
         mainView.whiteButtonRoastView.layer.borderWidth = 1
-        dismiss(animated: true)
     }
 
     @objc func cancelButton() {

@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		52DF95BA2B7A679C0095027A /* DetailControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95B92B7A679C0095027A /* DetailControllerView.swift */; };
 		52DF95BC2B7A81F00095027A /* CoffeRoastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95BB2B7A81F00095027A /* CoffeRoastView.swift */; };
-		52DF95BE2B7A87B10095027A /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95BD2B7A87B00095027A /* ButtonCell.swift */; };
+		52DF95BE2B7A87B10095027A /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95BD2B7A87B00095027A /* CustomButtonView.swift */; };
 		52DF95C02B7AB39A0095027A /* CofeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95BF2B7AB39A0095027A /* CofeModel.swift */; };
 		52DF95C32B7AB5EB0095027A /* OptionsControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95C22B7AB5EB0095027A /* OptionsControllerView.swift */; };
 		52DF95C52B7ACB300095027A /* Extension_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95C42B7ACB300095027A /* Extension_UILabel.swift */; };
 		52DF95C92B7ADC190095027A /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95C82B7ADC190095027A /* CancelButton.swift */; };
+		52DF95CB2B7B89A30095027A /* OrderControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95CA2B7B89A30095027A /* OrderControllerView.swift */; };
 		52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F062B71A3EB00B764D2 /* AppDelegate.swift */; };
 		52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */; };
 		52E87F102B71A3EE00B764D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */; };
@@ -33,11 +34,12 @@
 		52DF95B72B7A50360095027A /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		52DF95B92B7A679C0095027A /* DetailControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailControllerView.swift; sourceTree = "<group>"; };
 		52DF95BB2B7A81F00095027A /* CoffeRoastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeRoastView.swift; sourceTree = "<group>"; };
-		52DF95BD2B7A87B00095027A /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
+		52DF95BD2B7A87B00095027A /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
 		52DF95BF2B7AB39A0095027A /* CofeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CofeModel.swift; sourceTree = "<group>"; };
 		52DF95C22B7AB5EB0095027A /* OptionsControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsControllerView.swift; sourceTree = "<group>"; };
 		52DF95C42B7ACB300095027A /* Extension_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UILabel.swift; sourceTree = "<group>"; };
 		52DF95C82B7ADC190095027A /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
+		52DF95CA2B7B89A30095027A /* OrderControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderControllerView.swift; sourceTree = "<group>"; };
 		52E87F032B71A3EB00B764D2 /* Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E87F062B71A3EB00B764D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +73,8 @@
 				52DF95B92B7A679C0095027A /* DetailControllerView.swift */,
 				52DF95BB2B7A81F00095027A /* CoffeRoastView.swift */,
 				52DF95C22B7AB5EB0095027A /* OptionsControllerView.swift */,
-				52DF95BD2B7A87B00095027A /* ButtonCell.swift */,
+				52DF95CA2B7B89A30095027A /* OrderControllerView.swift */,
+				52DF95BD2B7A87B00095027A /* CustomButtonView.swift */,
 				52DF95C42B7ACB300095027A /* Extension_UILabel.swift */,
 				52DF95C82B7ADC190095027A /* CancelButton.swift */,
 			);
@@ -109,10 +112,10 @@
 				52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */,
 				52DF95C12B7AB3A20095027A /* Model */,
 				52E87F972B7A4CC700B764D2 /* Controllers\ */,
-				52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */,
 				52DF95B82B7A67790095027A /* Views */,
 				52E87F982B7A4D0A00B764D2 /* Font */,
 				52E87F112B71A3EE00B764D2 /* LaunchScreen.storyboard */,
+				52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */,
 				52E87F142B71A3EE00B764D2 /* Info.plist */,
 			);
 			path = Template;
@@ -258,8 +261,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				52E87F8A2B7A4B8400B764D2 /* CatalogViewController.swift in Sources */,
-				52DF95BE2B7A87B10095027A /* ButtonCell.swift in Sources */,
+				52DF95BE2B7A87B10095027A /* CustomButtonView.swift in Sources */,
 				52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */,
+				52DF95CB2B7B89A30095027A /* OrderControllerView.swift in Sources */,
 				52DF95BC2B7A81F00095027A /* CoffeRoastView.swift in Sources */,
 				52E87F8C2B7A4BAE00B764D2 /* CoffeRoastViewController.swift in Sources */,
 				52DF95C92B7ADC190095027A /* CancelButton.swift in Sources */,
