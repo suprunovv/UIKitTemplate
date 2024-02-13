@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44312F8E2B7BF035007BD47E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44312F8D2B7BF035007BD47E /* Colors.xcassets */; };
 		447202032B7B4BE0000CAEF9 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52DF95B72B7A50360095027A /* AmaticSC-Bold.ttf */; };
 		447202042B7B4D5C000CAEF9 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52DF95B62B7A50360095027A /* AmaticSC-Regular.ttf */; };
 		4481CB9B2B7AA677008B66DF /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481CB9A2B7AA677008B66DF /* UIColor+extension.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44312F8D2B7BF035007BD47E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		4481CB9A2B7AA677008B66DF /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		52DF95B62B7A50360095027A /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		52DF95B72B7A50360095027A /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		52E87F052B71A3EB00B764D2 /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				44312F8D2B7BF035007BD47E /* Colors.xcassets */,
 				52E87F062B71A3EB00B764D2 /* AppDelegate.swift */,
 				52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */,
 				52E87F972B7A4CC700B764D2 /* Controllers\ */,
@@ -170,6 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44312F8E2B7BF035007BD47E /* Colors.xcassets in Resources */,
 				447202042B7B4D5C000CAEF9 /* AmaticSC-Regular.ttf in Resources */,
 				52E87F132B71A3EE00B764D2 /* LaunchScreen.storyboard in Resources */,
 				447202032B7B4BE0000CAEF9 /* AmaticSC-Bold.ttf in Resources */,
