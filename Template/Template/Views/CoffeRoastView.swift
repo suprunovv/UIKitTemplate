@@ -4,17 +4,23 @@
 import UIKit
 
 /// вью экрана с выбором обжарки
-class CoffeRoastView: UIView {
+final class CoffeRoastView: UIView {
+    // MARK: - Visual Components
+
     /// заглавный лейбл
-    private let titleLabel = UILabel(text: "Уточните обжарку зеренъ",
-                                     color: .black,
-                                     aligment: .center,
-                                     font: .boldSystemFont(ofSize: 18),
-                                     lines: 1,
-                                     frame: CGRect(x: 40,
-                                                   y: 53,
-                                                   width: 294,
-                                                   height: 30))
+    private let titleLabel = UILabel(
+        text: "Уточните обжарку зеренъ",
+        color: .black,
+        aligment: .center,
+        font: .boldSystemFont(ofSize: 18),
+        lines: 1,
+        frame: CGRect(
+            x: 40,
+            y: 53,
+            width: 294,
+            height: 30
+        )
+    )
 
     /// имеджВью/кнопка темной обжарки
     var blackButtonRoastView: CustomButtonView = {
@@ -49,9 +55,10 @@ class CoffeRoastView: UIView {
         height: 14
     ))
 
+    // MARK: - Initializers
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
         setViews()
     }
 
@@ -59,7 +66,11 @@ class CoffeRoastView: UIView {
         super.init(coder: coder)
     }
 
+    // MARK: - Private Methods
+
+    /// метод добавления вью на главный вью
     private func setViews() {
+        backgroundColor = .white
         addSubview(blackButtonRoastView)
         addSubview(whiteButtonRoastView)
         addSubview(titleLabel)

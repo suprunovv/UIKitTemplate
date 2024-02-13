@@ -20,6 +20,7 @@ extension UILabel {
         textAlignment = aligment
         numberOfLines = lines
 
+        /// задаю цвет отдельным частям текста в лейбле
         let attributedString = NSMutableAttributedString(string: text)
         let range = (text as NSString).range(of: "+ 50 руб")
         let range2 = (text as NSString).range(of: "+ 70 руб")
@@ -42,5 +43,3 @@ extension UILabel {
         attributedText = attributedString
     }
 }
-
-/// range(of: "+ 50 руб")

@@ -4,7 +4,9 @@
 import UIKit
 
 /// универсальная вьюха под кнопку
-class CustomButtonView: UIView {
+final class CustomButtonView: UIView {
+    // MARK: - Visual Components
+
     /// лейбл с текстом
     let textLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 117, width: 165, height: 34))
@@ -27,16 +29,25 @@ class CustomButtonView: UIView {
         return imageView
     }()
 
+    // MARK: - Initializers
+
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setViews()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+    // MARK: - Private Methods
+
+    /// метод добавляет вью на главный влю
+    private func setViews() {
         backgroundColor = .systemGray6
         layer.cornerRadius = 12
         addSubview(textLabel)
         addSubview(imageView)
         isUserInteractionEnabled = true
-    }
-
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
 }

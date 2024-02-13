@@ -8,29 +8,49 @@ protocol RoastTypeDelegate: AnyObject {
     func transfer(_ imageName: String, text: String)
 }
 
+/// протокол для передачи модели
 protocol CoffeModelDelegate: AnyObject {
     func transfer(model: CoffeModel)
 }
 
+/// протокол для пуша на экран смс
+protocol PushDelegate: AnyObject {
+    func pushVC()
+}
+
 // экран с выбором деталей заказа
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
+    // MARK: - Public Properties
+
+    /// название картинки в кнопке обжарки
     var roastImageName = "темнаяОбж" {
         didSet {
             mainView.buttonRoastView.imageView.image = UIImage(named: roastImageName)
         }
     }
 
+    /// текст в кнопке обжарки
     var roastText = "Темная\nобжарка" {
         didSet {
             mainView.buttonRoastView.textLabel.text = roastText
         }
     }
 
+    // MARK: - Private Properties
+
     /// массив названий картинок с коффе
     private let coffeImages = ["кофе", "капучино", "латте"]
 
+    /// экземплар главной вью
     private let mainView = DetailControllerView()
-    private var model = CoffeModel()
+    /// модель с данными
+    private var model = CoffeModel() {
+        didSet {
+            mainView.priceLabel.text = "Цѣна - \(model.totalPrice) руб"
+        }
+    }
+
+    /// название кофе
     private var coffeName = "Американо"
 
     /// кнопка share для нав бара
@@ -42,7 +62,7 @@ class DetailViewController: UIViewController {
             ),
             style: .done,
             target: self,
-            action: nil
+            action: #selector(share)
         )
         button.tintColor = .black
         return button
@@ -62,6 +82,8 @@ class DetailViewController: UIViewController {
         return view
     }()
 
+    // MARK: - Live Cycle
+
     override func loadView() {
         view = mainView
     }
@@ -73,11 +95,15 @@ class DetailViewController: UIViewController {
         setNavigationItems()
     }
 
+    // MARK: - Private Methods
+
+    /// установка айтемов в навигейшн бар
     private func setNavigationItems() {
         navigationItem.rightBarButtonItem = shareBarButton
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backBarButton)
     }
 
+    /// добавление таргетов к кнопкам
     private func setTargets() {
         mainView.coffeSegmentControl.addTarget(
             self,
@@ -91,6 +117,7 @@ class DetailViewController: UIViewController {
         )
     }
 
+    /// добавление нажатий на мои кнопки-вьюхи
     private func addRecognizer() {
         let roastGesture = UITapGestureRecognizer()
         roastGesture.addTarget(self, action: #selector(goToCoffeRoastVC))
@@ -100,7 +127,8 @@ class DetailViewController: UIViewController {
         mainView.buttonRoastView.addGestureRecognizer(roastGesture)
     }
 
-    @objc func goToCoffeRoastVC() {
+    /// переход на экран с выбором обжарки
+    @objc private func goToCoffeRoastVC() {
         let secondVC = CoffeRoastViewController()
         switch roastImageName {
         case "темнаяОбж":
@@ -115,14 +143,15 @@ class DetailViewController: UIViewController {
         present(secondVC, animated: true)
     }
 
-    @objc func goToOptionsVC() {
+    /// переход на экран с выбором доп компонентов
+    @objc private func goToOptionsVC() {
         let secondVC = OptionsViewController()
         secondVC.delegate = self
         present(secondVC, animated: true)
     }
 
     /// метод меняет картинку кофе в зависимости от выбранного названия в сегментКонтроллере
-    @objc func segmentedImage() {
+    @objc private func segmentedImage() {
         let names = [
             "Американо",
             "Капучино",
@@ -132,15 +161,27 @@ class DetailViewController: UIViewController {
         coffeName = names[mainView.coffeSegmentControl.selectedSegmentIndex]
     }
 
-    @objc func goOrderController() {
+    /// переход на экран с чеком
+    @objc private func goOrderController() {
         let secondVc = OrderViewController()
         secondVc.model = model
         secondVc.coffeName = coffeName
+        secondVc.pushDelegate = self
         present(secondVc, animated: true)
     }
 
+    ///  переход на предыдущий экран
     @objc private func goBack() {
         navigationController?.popViewController(animated: true)
+    }
+
+    /// метод вызывает активити контроллер
+    @objc private func share() {
+        let activity = UIActivityViewController(
+            activityItems: ["vkusCoffe24"],
+            applicationActivities: nil
+        )
+        present(activity, animated: true)
     }
 }
 
@@ -161,5 +202,12 @@ extension DetailViewController: CoffeModelDelegate {
         } else {
             mainView.ingridientsRoastView.imageView.image = UIImage(named: "окк")
         }
+    }
+}
+
+extension DetailViewController: PushDelegate {
+    func pushVC() {
+        let secondVS = SmsViewController()
+        navigationController?.pushViewController(secondVS, animated: true)
     }
 }

@@ -4,10 +4,14 @@
 import UIKit
 
 /// экран с выбором дополнительных опций
-class OptionsViewController: UIViewController {
+final class OptionsViewController: UIViewController {
+    // MARK: - Private Properties
+
     let mainView = OptionsControllerView()
     var coffeModel = CoffeModel()
     weak var delegate: CoffeModelDelegate?
+
+    // MARK: - Live Cycle
 
     override func loadView() {
         view = mainView
@@ -18,8 +22,10 @@ class OptionsViewController: UIViewController {
         addTargets()
     }
 
+    // MARK: - Private Methods
+
     /// метод добавляет таргет к каждому свитчу
-    func addTargets() {
+    private func addTargets() {
         mainView.milkSwitch.addTarget(
             self,
             action: #selector(testSwit(_:)),
@@ -55,7 +61,7 @@ class OptionsViewController: UIViewController {
     /// метод для обработки нажатий на свитчи
     /// добавляет в словарь модели ключи и значения
     /// а так же удаляет их если свитч выключен
-    @objc func testSwit(_ sender: UISwitch) {
+    @objc private func testSwit(_ sender: UISwitch) {
         switch sender {
         case mainView.milkSwitch:
             if sender.isOn {

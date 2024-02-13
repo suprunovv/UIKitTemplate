@@ -5,9 +5,17 @@ import UIKit
 
 /// экран с итоговой суммой
 final class OrderViewController: UIViewController {
-    private let mainView = OrderControllerView()
+    // MARK: - Public Properties
+
     var model = CoffeModel()
     var coffeName = ""
+    weak var pushDelegate: PushDelegate?
+
+    // MARK: - Private Properties
+
+    private let mainView = OrderControllerView()
+
+    // MARK: - Live Cycle
 
     override func loadView() {
         view = mainView
@@ -20,18 +28,28 @@ final class OrderViewController: UIViewController {
         addTargets()
     }
 
+    // MARK: - Private Methods
+
     /// передаю информацию на лейблы
     private func setLabelText() {
         mainView.coffeNameLabel.text = coffeName
-        mainView.priceLabel.text = "\(model.totalPrice) руб"
+        mainView.priceLabel.text = "Цѣна - \(model.totalPrice) руб"
     }
+
     /// метод добавляет таргет кнопке cancel
     private func addTargets() {
-        mainView.cancelButton.addTarget(self,
-                                        action: #selector(goBack),
-                                        for: .touchUpInside)
-        
+        mainView.cancelButton.addTarget(
+            self,
+            action: #selector(goBack),
+            for: .touchUpInside
+        )
+        mainView.payButton.addTarget(
+            self,
+            action: #selector(goToSmsVC),
+            for: .touchUpInside
+        )
     }
+
     /// метод отрисовывает лейблы с опциями которые пришли в модели
     private func addOtionsLabels() {
         var startY = 191
@@ -45,7 +63,7 @@ final class OrderViewController: UIViewController {
                 frame: CGRect(
                     x: 20,
                     y: startY,
-                    width: 150,
+                    width: 160,
                     height: 30
                 )
             )
@@ -67,12 +85,14 @@ final class OrderViewController: UIViewController {
             startY += 36
         }
     }
+
     @objc private func goBack() {
         dismiss(animated: true)
     }
+
     /// переход на следующий экран
     @objc private func goToSmsVC() {
-        let secondVC = SmsViewController()
-        navigationController?.pushViewController(secondVC, animated: true)
+        dismiss(animated: false)
+        pushDelegate?.pushVC()
     }
 }

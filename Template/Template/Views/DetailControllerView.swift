@@ -4,7 +4,9 @@
 import UIKit
 
 /// вью экрана с деталями
-class DetailControllerView: UIView {
+final class DetailControllerView: UIView {
+    // MARK: - Visual Components
+
     /// главная имеджВью с картинкой коффе
     let titleImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(
@@ -30,6 +32,38 @@ class DetailControllerView: UIView {
         return view
     }()
 
+    /// лейбл с текстом "Модификация"
+    private let modificationLabel = UILabel(
+        text: "Модификация",
+        color: .black,
+        aligment: .left,
+        font: .boldSystemFont(ofSize: 18),
+        lines: 1,
+        frame: CGRect(
+            x: 15,
+            y: 432,
+            width: 200,
+            height: 30
+        )
+    )
+    /// лейбл с ценой
+    var priceLabel = UILabel(
+        text: "Цѣна - 100 руб",
+        color: .black,
+        aligment: .right,
+        font: .boldSystemFont(ofSize: 18),
+        lines: 1,
+        frame: CGRect(
+            x: 15,
+            y: 669,
+            width: 345,
+            height: 30
+        )
+    )
+
+    // MARK: - Public Properties
+
+    /// сегмент контрол с выбором кофе
     lazy var coffeSegmentControl: UISegmentedControl = {
         let segment = UISegmentedControl(items: [
             "Американо",
@@ -45,21 +79,6 @@ class DetailControllerView: UIView {
         )
         return segment
     }()
-
-    /// лейбл с текстом "Модификация"
-    let modificationLabel = UILabel(
-        text: "Модификация",
-        color: .black,
-        aligment: .left,
-        font: .boldSystemFont(ofSize: 18),
-        lines: 1,
-        frame: CGRect(
-            x: 15,
-            y: 432,
-            width: 200,
-            height: 30
-        )
-    )
 
     /// кнопка/вьюха с вариантом обжарки
     var buttonRoastView: CustomButtonView = {
@@ -92,6 +111,7 @@ class DetailControllerView: UIView {
         return button
     }()
 
+    /// кнопка заказать при нажатии на нее переходим на следующий экран
     let orderButton: UIButton = {
         let button = UIButton(type: .system)
         button.frame = CGRect(
@@ -103,29 +123,12 @@ class DetailControllerView: UIView {
         button.setTitle("Заказать", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.tintColor = .white
-        button.backgroundColor = .gray
+        button.backgroundColor = UIColor(named: "buttonColor")
         button.layer.cornerRadius = 12
         return button
     }()
 
-//    let shareButton: UIButton = {
-//        let button = UIButton()
-//        button.frame = CGRect(x: 330.55, y: 58.27, width: 22.21, height: 20.18)
-//        button.tintColor = .black
-//        button.setBackgroundImage(UIImage(systemName: "paperplane.fill"), for: .normal)
-//        return button
-//    }()
-
-    let backButton: UIView = {
-        let view = UIView()
-        let button = UIButton()
-        button.layer.cornerRadius = button.frame.width / 2
-        button.setImage(UIImage(systemName: "arrow.backward"), for: .normal)
-        button.backgroundColor = .white
-        button.tintColor = .black
-        view.addSubview(button)
-        return view
-    }()
+    // MARK: - Initializers
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -136,7 +139,10 @@ class DetailControllerView: UIView {
         super.init(coder: coder)
     }
 
-    func setViews() {
+    // MARK: - Private Methods
+
+    /// метод добавляет все вью на главный вью
+    private func setViews() {
         backgroundColor = .white
         addSubview(backGroundView)
         addSubview(titleImageView)
@@ -144,23 +150,7 @@ class DetailControllerView: UIView {
         addSubview(modificationLabel)
         addSubview(buttonRoastView)
         addSubview(ingridientsRoastView)
-        addSubview(addPriceLabel(price: 100))
         addSubview(orderButton)
-        // addSubview(shareButton)
-    }
-
-    /// метод создает лейбл с ценой
-    func addPriceLabel(price: Int) -> UILabel {
-        let label = UILabel(frame: CGRect(
-            x: 15,
-            y: 669,
-            width: 345,
-            height: 30
-        ))
-        label.text = "Цѣна - \(price) руб"
-        label.textColor = .black
-        label.textAlignment = .right
-        label.font = .boldSystemFont(ofSize: 18)
-        return label
+        addSubview(priceLabel)
     }
 }

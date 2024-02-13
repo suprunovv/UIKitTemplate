@@ -4,9 +4,13 @@
 import UIKit
 
 // экран с выбором обжарки
-class CoffeRoastViewController: UIViewController {
+final class CoffeRoastViewController: UIViewController {
+    // MARK: - Public Properties
+
     let mainView = CoffeRoastView()
     weak var delegate: RoastTypeDelegate?
+
+    // MARK: - Live Cycle
 
     override func loadView() {
         view = mainView
@@ -32,21 +36,23 @@ class CoffeRoastViewController: UIViewController {
         )
     }
 
+    // MARK: - Private Methods
+
     /// метод для передачи темной обжарки делегату
-    @objc func transferBlack() {
+    @objc private func transferBlack() {
         delegate?.transfer("темнаяОбж", text: "Темная\nобжарка")
         mainView.blackButtonRoastView.layer.borderWidth = 1
         mainView.whiteButtonRoastView.layer.borderWidth = 0
     }
 
     /// метод для передачи светлой обжарки делегату
-    @objc func transferWhite() {
+    @objc private func transferWhite() {
         delegate?.transfer("светлаяОбж", text: "Свѣтлая\nобжарка")
         mainView.blackButtonRoastView.layer.borderWidth = 0
         mainView.whiteButtonRoastView.layer.borderWidth = 1
     }
 
-    @objc func cancelButton() {
+    @objc private func cancelButton() {
         dismiss(animated: true)
     }
 }
