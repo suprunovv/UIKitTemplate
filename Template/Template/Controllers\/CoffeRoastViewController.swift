@@ -8,16 +8,19 @@ final class CoffeRoastViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
-        static let blackRoastImageName = "темнаяОбж"
-        static let whiteRoastImageName = "светлаяОбж"
+        static let blackRoastImageName = "darkRoast"
+        static let whiteRoastImageName = "whiteRoast"
         static let blackRoastText = "Темная\nобжарка"
         static let whiteRoastText = "Свѣтлая\nобжарка"
     }
 
     // MARK: - Public Properties
 
-    let mainView = CoffeRoastView()
     weak var delegate: RoastTypeDelegate?
+
+    // MARK: - Private properties
+
+    private let mainView = CoffeRoastView()
 
     // MARK: - Live Cycle
 
@@ -29,6 +32,8 @@ final class CoffeRoastViewController: UIViewController {
         super.viewDidLoad()
         setTargetButton()
     }
+
+    // MARK: - Private Methods
 
     /// метод добавляет нажатия на кнопки вариантов обжарки
     private func setTargetButton() {
@@ -45,7 +50,10 @@ final class CoffeRoastViewController: UIViewController {
         )
     }
 
-    // MARK: - Private Methods
+    func setBorderWidth(_ isButtonBlack: Bool) {
+        mainView.blackButtonRoastView.layer.borderWidth = isButtonBlack ? 1 : 0
+        mainView.whiteButtonRoastView.layer.borderWidth = isButtonBlack ? 0 : 1
+    }
 
     /// метод для передачи темной обжарки делегату
     @objc private func transferBlack() {
@@ -53,8 +61,7 @@ final class CoffeRoastViewController: UIViewController {
             Constants.blackRoastImageName,
             text: Constants.blackRoastText
         )
-        mainView.blackButtonRoastView.layer.borderWidth = 1
-        mainView.whiteButtonRoastView.layer.borderWidth = 0
+        setBorderWidth(true)
     }
 
     /// метод для передачи светлой обжарки делегату
@@ -63,8 +70,7 @@ final class CoffeRoastViewController: UIViewController {
             Constants.whiteRoastImageName,
             text: Constants.whiteRoastText
         )
-        mainView.blackButtonRoastView.layer.borderWidth = 0
-        mainView.whiteButtonRoastView.layer.borderWidth = 1
+        setBorderWidth(false)
     }
 
     @objc private func cancelButton() {

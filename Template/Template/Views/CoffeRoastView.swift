@@ -8,10 +8,12 @@ final class CoffeRoastView: UIView {
     // MARK: - Constants
 
     enum Constants {
+        /// тут лежат текста и названия картинок для лейблов и imageView
         static let titleLabelText = "Уточните обжарку зеренъ"
         static let blackRoastText = "Темная\nобжарка"
-        static let whiteRoastImageName = "светлаяОбж"
+        static let whiteRoastImageName = "whiteRoast"
         static let whiteRoastText = "Свѣтлая\nобжарка"
+        static let blackRoastImageName = "darkRoast"
     }
 
     // MARK: - Visual Components
@@ -39,7 +41,8 @@ final class CoffeRoastView: UIView {
             width: 165,
             height: 165
         ))
-        button.textLabel.text = Constants.blackRoastText
+        button.configureImage(imageName: Constants.blackRoastImageName)
+        button.configureTitle(text: Constants.blackRoastText)
         return button
     }()
 
@@ -51,8 +54,8 @@ final class CoffeRoastView: UIView {
             width: 165,
             height: 165
         ))
-        button.imageView.image = UIImage(named: Constants.whiteRoastImageName)
-        button.textLabel.text = Constants.whiteRoastText
+        button.configureImage(imageName: Constants.whiteRoastImageName)
+        button.configureTitle(text: Constants.whiteRoastText)
         return button
     }()
 

@@ -5,16 +5,19 @@ import UIKit
 
 /// протокол для передачи данных об обжарке
 protocol RoastTypeDelegate: AnyObject {
+    /// метод принимает название картинки и текст для лейбла
     func transfer(_ imageName: String, text: String)
 }
 
 /// протокол для передачи модели
 protocol CoffeModelDelegate: AnyObject {
-    func transfer(model: CoffeModel)
+    /// метод принимает модель коффе с дополнительными опциями
+    func transfer(model: Coffe)
 }
 
 /// протокол для пуша на экран смс
 protocol PushDelegate: AnyObject {
+    /// метод переходит на следующий экран через пуш
     func pushVC()
 }
 
@@ -23,13 +26,12 @@ final class DetailViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
-        static let coffeImageNames = ["кофе", "капучино", "латте"]
-        static let blackRoastImageName = "темнаяОбж"
-        static let whiteRoastImageName = "светлаяОбж"
+        static let coffeImageNames = ["americano", "capuchino", "latte"]
+        static let blackRoastImageName = "darkRoast"
+        static let whiteRoastImageName = "whiteRoast"
         static let blackRoastText = "Темная\nобжарка"
         static let coffeNames = ["Американо", "Капучино", "Латте"]
-        static let promocode = "vkusCoffe24"
-        static let rubel = "Руб"
+        static let promocodeText = "vkusCoffe24"
     }
 
     // MARK: - Public Properties
@@ -37,14 +39,14 @@ final class DetailViewController: UIViewController {
     /// название картинки в кнопке обжарки
     var roastImageName = Constants.blackRoastImageName {
         didSet {
-            mainView.buttonRoastView.imageView.image = UIImage(named: roastImageName)
+            mainView.buttonRoastView.configureImage(imageName: roastImageName)
         }
     }
 
     /// текст в кнопке обжарки
     var roastText = Constants.blackRoastText {
         didSet {
-            mainView.buttonRoastView.textLabel.text = roastText
+            mainView.buttonRoastView.configureTitle(text: roastText)
         }
     }
 
@@ -53,9 +55,9 @@ final class DetailViewController: UIViewController {
     /// экземплар главной вью
     private let mainView = DetailControllerView()
     /// модель с данными
-    private var model = CoffeModel() {
+    private var coffe = Coffe() {
         didSet {
-            mainView.priceLabel.text = "Цѣна - \(model.totalPrice) \(Constants.rubel)"
+            mainView.totalPrice = "\(GlobalConstants.priceText) - \(coffe.totalPrice) \(GlobalConstants.currency)"
         }
     }
 
@@ -138,43 +140,40 @@ final class DetailViewController: UIViewController {
 
     /// переход на экран с выбором обжарки
     @objc private func goToCoffeRoastVC() {
-        let secondVC = CoffeRoastViewController()
+        let coffeRoastViewController = CoffeRoastViewController()
         switch roastImageName {
         case Constants.blackRoastImageName:
-            secondVC.mainView.blackButtonRoastView.layer.borderWidth = 1
-            secondVC.mainView.blackButtonRoastView.layer.borderColor = UIColor.gray.cgColor
+            coffeRoastViewController.setBorderWidth(true)
         case Constants.whiteRoastImageName:
-            secondVC.mainView.whiteButtonRoastView.layer.borderWidth = 1
-            secondVC.mainView.whiteButtonRoastView.layer.borderColor = UIColor.gray.cgColor
+            coffeRoastViewController.setBorderWidth(false)
         default: break
         }
-        secondVC.delegate = self
-        present(secondVC, animated: true)
+        coffeRoastViewController.delegate = self
+        present(coffeRoastViewController, animated: true)
     }
 
     /// переход на экран с выбором доп компонентов
     @objc private func goToOptionsVC() {
-        let secondVC = OptionsViewController()
-        secondVC.delegate = self
-        present(secondVC, animated: true)
+        let optionsViewController = OptionsViewController()
+        optionsViewController.delegate = self
+        present(optionsViewController, animated: true)
     }
 
     /// метод меняет картинку кофе в зависимости от выбранного названия в сегментКонтроллере
     @objc private func segmentedImage() {
-        mainView.titleImageView.image = UIImage(
-            named:
+        mainView.titleImageName =
             Constants.coffeImageNames[mainView.coffeSegmentControl.selectedSegmentIndex]
-        )
+
         coffeName = Constants.coffeNames[mainView.coffeSegmentControl.selectedSegmentIndex]
     }
 
     /// переход на экран с чеком
     @objc private func goOrderController() {
-        let secondVc = OrderViewController()
-        secondVc.model = model
-        secondVc.coffeName = coffeName
-        secondVc.pushDelegate = self
-        present(secondVc, animated: true)
+        let orderViewController = OrderViewController()
+        orderViewController.coffe = coffe
+        orderViewController.coffeName = coffeName
+        orderViewController.pushDelegate = self
+        present(orderViewController, animated: true)
     }
 
     ///  переход на предыдущий экран
@@ -185,7 +184,7 @@ final class DetailViewController: UIViewController {
     /// метод вызывает активити контроллер
     @objc private func share() {
         let activity = UIActivityViewController(
-            activityItems: [Constants.promocode],
+            activityItems: [Constants.promocodeText],
             applicationActivities: nil
         )
         present(activity, animated: true)
@@ -202,19 +201,20 @@ extension DetailViewController: RoastTypeDelegate {
 
 /// подписываю на делегат и реализую передачу модели
 extension DetailViewController: CoffeModelDelegate {
-    func transfer(model: CoffeModel) {
-        self.model = model
-        if self.model.optionsMap.isEmpty {
-            mainView.ingridientsView.imageView.image = UIImage(named: "pluss")
+    func transfer(model: Coffe) {
+        coffe = model
+        if coffe.optionsMap.isEmpty {
+            mainView.ingridientsView.configureImage(imageName: "pluss")
         } else {
-            mainView.ingridientsView.imageView.image = UIImage(named: "окк")
+            mainView.ingridientsView.configureImage(imageName: "jackdaw")
         }
     }
 }
 
+/// подписываю на делегат для перехода на следующий экран пушем
 extension DetailViewController: PushDelegate {
     func pushVC() {
-        let secondVS = SmsViewController()
-        navigationController?.pushViewController(secondVS, animated: true)
+        let smsViewController = SmsViewController()
+        navigationController?.pushViewController(smsViewController, animated: true)
     }
 }

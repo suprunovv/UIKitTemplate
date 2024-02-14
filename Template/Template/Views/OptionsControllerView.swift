@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// вью экнана с доп опциями
+/// вью экрана с доп опциями
 final class OptionsControllerView: UIView {
     // MARK: - Constants
 
@@ -99,7 +99,7 @@ final class OptionsControllerView: UIView {
         addSubview(espressoSwitch)
     }
 
-    /// метод отрисовывает лейлы с названиями компонентов и их ценой
+    /// метод отрисовывает лейблы с названиями компонентов и их ценой
     private func setOptionsLabel() {
         var startY = 124
         for text in Constants.optionLabelsTexts {

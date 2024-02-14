@@ -4,7 +4,7 @@
 import Foundation
 
 /// модель заказа кофе
-struct CoffeModel {
+struct Coffe {
     var optionsMap: [String: Int] = [:]
     var totalPrice: Int {
         var sum = 100

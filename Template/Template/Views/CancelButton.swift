@@ -4,7 +4,10 @@
 import UIKit
 
 /// кнопка выход с крестиком
-class CancelButton: UIButton {
+
+final class CancelButton: UIButton {
+    // MARK: - Initializators
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setImage(UIImage(systemName: "xmark"), for: .normal)

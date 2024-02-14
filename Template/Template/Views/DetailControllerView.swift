@@ -8,7 +8,7 @@ final class DetailControllerView: UIView {
     // MARK: - Constants
 
     enum Constants {
-        static let coffeImageNames = ["кофе", "капучино", "латте"]
+        static let coffeImageNames = ["americano", "capuchino", "latte"]
         static let blackRoastText = "Темная\nобжарка"
         static let coffeNames = ["Американо", "Капучино", "Латте"]
         static let backgroundColor = "backColor"
@@ -17,24 +17,37 @@ final class DetailControllerView: UIView {
         static let ingridientsViewText = "Дополнительные\nингредіенты"
         static let bottomButtonColorName = "buttonColor"
         static let bottomButtonText = "Заказать"
+        static let blackRoastImageName = "darkRoast"
     }
 
     // MARK: - Visual Components
 
+    var totalPrice = "" {
+        didSet {
+            priceLabel.text = totalPrice
+        }
+    }
+
+    var titleImageName = Constants.coffeImageNames[0] {
+        didSet {
+            titleImageView.image = UIImage(named: titleImageName)
+        }
+    }
+
     /// главная имеджВью с картинкой коффе
-    let titleImageView: UIImageView = {
+    private lazy var titleImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(
             x: 112,
             y: 128,
             width: 150,
             height: 150
         ))
-        imageView.image = UIImage(named: Constants.coffeImageNames[0])
+        imageView.image = UIImage(named: self.titleImageName)
         return imageView
     }()
 
     /// вью сзади картинки с кофе в верхней части экрана
-    let backGroundView: UIView = {
+    private let backGroundView: UIView = {
         let view = UIView(frame: CGRect(
             x: 0,
             y: -10,
@@ -61,7 +74,7 @@ final class DetailControllerView: UIView {
         )
     )
     /// лейбл с ценой
-    var priceLabel = UILabel(
+    private var priceLabel = UILabel(
         text: Constants.priceLabelText,
         color: .black,
         aligment: .right,
@@ -98,7 +111,8 @@ final class DetailControllerView: UIView {
             width: 165,
             height: 165
         ))
-        button.textLabel.text = Constants.blackRoastText
+        button.configureImage(imageName: Constants.blackRoastImageName)
+        button.configureTitle(text: Constants.blackRoastText)
         return button
     }()
 
@@ -110,14 +124,9 @@ final class DetailControllerView: UIView {
             width: 165,
             height: 165
         ))
-        button.imageView.image = UIImage(named: "pluss")
-        button.imageView.frame = CGRect(
-            x: 67.42,
-            y: 56.42,
-            width: 27.19,
-            height: 27.19
-        )
-        button.textLabel.text = Constants.ingridientsViewText
+        button.configureImage(imageName: "pluss")
+        button.configureTitle(text: Constants.ingridientsViewText)
+        button.setIngridientImageFrame()
         return button
     }()
 

@@ -3,21 +3,27 @@
 
 import UIKit
 
-/// экран с итоговой суммой
+/// энам с названиями валют
+enum GlobalConstants {
+    static let currency = "Руб"
+    static let priceText = "Цѣна"
+}
+
+/// экран с итоговой суммой заказа
 final class OrderViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
         static let startFrameY = 191
         static let frameYSpace = 36
-        static let rubel = "Руб"
+        static let rubel = GlobalConstants.currency
         static let syrop = "Сироп"
         static let syropPrice = 20
     }
 
     // MARK: - Public Properties
 
-    var model = CoffeModel()
+    var coffe = Coffe()
     var coffeName = String()
     weak var pushDelegate: PushDelegate?
 
@@ -33,7 +39,7 @@ final class OrderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        addOtionsLabels()
+        addOptionsLabels()
         setLabelText()
         addTargets()
     }
@@ -42,8 +48,8 @@ final class OrderViewController: UIViewController {
 
     /// передаю информацию на лейблы
     private func setLabelText() {
-        mainView.coffeNameLabel.text = coffeName
-        mainView.priceLabel.text = "Цѣна - \(model.totalPrice) \(Constants.rubel)"
+        mainView.coffeName = coffeName
+        mainView.totalPrice = "\(GlobalConstants.priceText) - \(coffe.totalPrice) \(GlobalConstants.currency)"
     }
 
     /// метод добавляет таргет кнопке cancel
@@ -61,9 +67,9 @@ final class OrderViewController: UIViewController {
     }
 
     /// метод отрисовывает лейблы с опциями  и их ценой которые пришли в модели
-    private func addOtionsLabels() {
+    private func addOptionsLabels() {
         var startFrameY = Constants.startFrameY
-        for (name, price) in model.optionsMap {
+        for (name, price) in coffe.optionsMap {
             let optionNameLabel = UILabel(
                 text: name,
                 color: .black,
@@ -78,7 +84,7 @@ final class OrderViewController: UIViewController {
                 )
             )
             let priceLabel = UILabel(
-                text: "\(price) \(Constants.rubel)",
+                text: "\(price) \(GlobalConstants.currency)",
                 color: .black,
                 aligment: .right,
                 font: .systemFont(ofSize: 16),

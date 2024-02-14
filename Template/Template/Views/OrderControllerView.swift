@@ -19,11 +19,23 @@ final class OrderControllerView: UIView {
         static let rightImage = UIImage(named: "rightImage")
     }
 
+    var totalPrice = "" {
+        didSet {
+            priceLabel.text = totalPrice
+        }
+    }
+
+    var coffeName = "" {
+        didSet {
+            coffeNameLabel.text = coffeName
+        }
+    }
+
     // MARK: - Visual Components
 
     /// лейбл общая цена
-    var priceLabel = UILabel(
-        text: Constants.priceLabelText,
+    private lazy var priceLabel = UILabel(
+        text: self.totalPrice,
         color: .black,
         aligment: .center,
         font: .boldSystemFont(ofSize: 18),
@@ -37,8 +49,8 @@ final class OrderControllerView: UIView {
     )
 
     /// лейбл с названием коффе
-    var coffeNameLabel = UILabel(
-        text: Constants.coffeNameLabelText,
+    private var coffeNameLabel = UILabel(
+        text: "",
         color: .black,
         aligment: .left,
         font: .boldSystemFont(ofSize: 16),
@@ -52,7 +64,7 @@ final class OrderControllerView: UIView {
     )
 
     /// лейбл с ценой кофе
-    var coffePriceLabel = UILabel(
+    private var coffePriceLabel = UILabel(
         text: Constants.coffePriceLabelText,
         color: .black,
         aligment: .right,

@@ -23,7 +23,7 @@ final class OptionsViewController: UIViewController {
     // MARK: - Private Properties
 
     let mainView = OptionsControllerView()
-    var coffeModel = CoffeModel()
+    var coffe = Coffe()
     weak var delegate: CoffeModelDelegate?
 
     // MARK: - Live Cycle
@@ -80,55 +80,55 @@ final class OptionsViewController: UIViewController {
         switch sender {
         case mainView.milkSwitch:
             if sender.isOn {
-                coffeModel.optionsMap.updateValue(
+                coffe.optionsMap.updateValue(
                     Constants.milkPrice,
                     forKey: Constants.milk
                 )
             } else {
-                coffeModel.optionsMap.removeValue(forKey: Constants.milk)
+                coffe.optionsMap.removeValue(forKey: Constants.milk)
             }
         case mainView.syropSwitch:
             if sender.isOn {
-                coffeModel.optionsMap.updateValue(
+                coffe.optionsMap.updateValue(
                     Constants.syropPrice,
                     forKey: Constants.syrop
                 )
             } else {
-                coffeModel.optionsMap.removeValue(forKey: Constants.syrop)
+                coffe.optionsMap.removeValue(forKey: Constants.syrop)
             }
         case mainView.soyMilkSwitch:
             if sender.isOn {
-                coffeModel.optionsMap.updateValue(
+                coffe.optionsMap.updateValue(
                     Constants.soyMilkPrice,
                     forKey: Constants.soyMilk
                 )
             } else {
-                coffeModel.optionsMap.removeValue(forKey: Constants.soyMilk)
+                coffe.optionsMap.removeValue(forKey: Constants.soyMilk)
             }
         case mainView.almondMilkSwitch:
             if sender.isOn {
-                coffeModel.optionsMap.updateValue(
+                coffe.optionsMap.updateValue(
                     Constants.almondMilkPrice,
                     forKey: Constants.almondMilk
                 )
             } else {
-                coffeModel.optionsMap.removeValue(forKey: Constants.almondMilk)
+                coffe.optionsMap.removeValue(forKey: Constants.almondMilk)
             }
         case mainView.espressoSwitch:
             if sender.isOn {
-                coffeModel.optionsMap.updateValue(
+                coffe.optionsMap.updateValue(
                     Constants.espressoPrice,
                     forKey: Constants.espresso
                 )
             } else {
-                coffeModel.optionsMap.removeValue(forKey: Constants.espresso)
+                coffe.optionsMap.removeValue(forKey: Constants.espresso)
             }
         default: break
         }
     }
 
     @objc private func goBack() {
-        delegate?.transfer(model: coffeModel)
+        delegate?.transfer(model: coffe)
         dismiss(animated: true)
     }
 }

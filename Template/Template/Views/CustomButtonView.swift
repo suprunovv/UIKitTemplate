@@ -8,7 +8,7 @@ final class CustomButtonView: UIView {
     // MARK: - Visual Components
 
     /// лейбл с текстом
-    let textLabel: UILabel = {
+    private let textLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 117, width: 165, height: 34))
         label.textColor = .black
         label.font = .systemFont(ofSize: 14)
@@ -18,14 +18,14 @@ final class CustomButtonView: UIView {
     }()
 
     /// имеджВью
-    var imageView: UIImageView = {
+    private var imageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(
             x: 31,
             y: 17,
             width: 100,
             height: 100
         ))
-        imageView.image = UIImage(named: "темнаяОбж")
+        imageView.image = UIImage(named: "blackRoast")
         return imageView
     }()
 
@@ -40,6 +40,25 @@ final class CustomButtonView: UIView {
         super.init(coder: coder)
     }
 
+    // MARK: - Public Methods
+
+    func configureImage(imageName: String) {
+        imageView.image = UIImage(named: imageName)
+    }
+
+    func configureTitle(text: String) {
+        textLabel.text = text
+    }
+
+    func setIngridientImageFrame() {
+        imageView.frame = CGRect(
+            x: 67.42,
+            y: 56.42,
+            width: 27.19,
+            height: 27.19
+        )
+    }
+
     // MARK: - Private Methods
 
     /// метод добавляет вью на главный влю
@@ -49,5 +68,6 @@ final class CustomButtonView: UIView {
         addSubview(textLabel)
         addSubview(imageView)
         isUserInteractionEnabled = true
+        layer.borderColor = UIColor.systemGray3.cgColor
     }
 }
