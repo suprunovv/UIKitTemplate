@@ -79,6 +79,10 @@
 			children = (
 				52E87F062B71A3EB00B764D2 /* AppDelegate.swift */,
 				52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */,
+				52E87F872B7A4AF200B764D2 /* AuthorisationViewController.swift */,
+				52E87F892B7A4B8400B764D2 /* CatalogViewController.swift */,
+				52E87F932B7A4C6300B764D2 /* SmsViewController.swift */,
+				52E87F952B7A4CA800B764D2 /* ThankViewController.swift */,
 				52E87F972B7A4CC700B764D2 /* Controllers\ */,
 				52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */,
 				52E87F982B7A4D0A00B764D2 /* Font */,
@@ -92,10 +96,6 @@
 		52E87F972B7A4CC700B764D2 /* Controllers\ */ = {
 			isa = PBXGroup;
 			children = (
-				52E87F872B7A4AF200B764D2 /* AuthorisationViewController.swift */,
-				52E87F892B7A4B8400B764D2 /* CatalogViewController.swift */,
-				52E87F932B7A4C6300B764D2 /* SmsViewController.swift */,
-				52E87F952B7A4CA800B764D2 /* ThankViewController.swift */,
 				52E87F8B2B7A4BAE00B764D2 /* CoffeRoastViewController.swift */,
 				52E87F8D2B7A4BD400B764D2 /* DetailViewController.swift */,
 				52E87F8F2B7A4C0B00B764D2 /* OptionsViewController.swift */,
@@ -382,7 +382,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GAVDTRGBHR;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Template/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -409,7 +409,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GAVDTRGBHR;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Template/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

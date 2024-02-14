@@ -14,15 +14,9 @@ final class AuthorisationViewController: UIViewController {
         static let loginPlaceholder = "Введите логин"
         static let passwordPlaceholder = "Введите пароль"
         static let loginButtonText = "Войти"
-    }
-
-    enum Fonts {
         static let verdanaBold16 = UIFont(name: "Verdana-Bold", size: 16)
         static let verdanaBold26 = UIFont(name: "Verdana-Bold", size: 26)
         static let verdana14 = UIFont(name: "Verdana", size: 14)
-    }
-
-    enum Images {
         static let logoCoffe = UIImage(named: "LogoCoffe")
         static let LoginInvisible = UIImage(named: "LoginInvisible")
         static let LoginVisible = UIImage(named: "LoginVisible")
@@ -39,7 +33,7 @@ final class AuthorisationViewController: UIViewController {
 
     private let logoImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 100, y: 103, width: 175, height: 50))
-        imageView.image = Images.logoCoffe
+        imageView.image = Constants.logoCoffe
         return imageView
     }()
 
@@ -47,7 +41,7 @@ final class AuthorisationViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 332, y: 433, width: 22, height: 19))
         button.alpha = 1
         button.setTitle("", for: .normal)
-        button.titleLabel?.font = Fonts.verdanaBold16
+        button.titleLabel?.font = Constants.verdanaBold16
         button.addTarget(nil, action: #selector(passwordVisibleButtonTouched), for: .touchUpInside)
         return button
     }()
@@ -55,28 +49,28 @@ final class AuthorisationViewController: UIViewController {
     private let signLabel: UILabel = {
         let signLabel = UILabel(frame: CGRect(x: 20, y: 280, width: 195, height: 31))
         signLabel.text = Constants.authorisationText
-        signLabel.font = Fonts.verdanaBold26
+        signLabel.font = Constants.verdanaBold26
         return signLabel
     }()
 
     private let loginLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 20, y: 332, width: 175, height: 19))
         label.text = Constants.loginText
-        label.font = Fonts.verdanaBold16
+        label.font = Constants.verdanaBold16
         return label
     }()
 
     private let passwordLabel: UILabel = {
         let passwordLabel = UILabel(frame: CGRect(x: 20, y: 407, width: 175, height: 19))
         passwordLabel.text = Constants.passwordText
-        passwordLabel.font = Fonts.verdanaBold16
+        passwordLabel.font = Constants.verdanaBold16
         return passwordLabel
     }()
 
     private let loginTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 361, width: 175, height: 17))
         textField.placeholder = Constants.loginPlaceholder
-        textField.font = Fonts.verdana14
+        textField.font = Constants.verdana14
         textField.addTarget(nil, action: #selector(textDidChange(_:)), for: .editingChanged)
         return textField
     }()
@@ -84,13 +78,13 @@ final class AuthorisationViewController: UIViewController {
     private let passwordTextField: UITextField = {
         let passwordTextField = UITextField(frame: CGRect(x: 20, y: 436, width: 175, height: 17))
         passwordTextField.placeholder = Constants.passwordPlaceholder
-        passwordTextField.font = Fonts.verdana14
+        passwordTextField.font = Constants.verdana14
         passwordTextField.addTarget(nil, action: #selector(textDidChange(_:)), for: .editingChanged)
         passwordTextField.isSecureTextEntry = true
         return passwordTextField
     }()
 
-    private let dividerloginView: UIView = {
+    private let dividerLoginView: UIView = {
         let dividerView = UIView(frame: CGRect(x: 20, y: 386, width: 335, height: 1))
         dividerView.backgroundColor = .lightGray
         return dividerView
@@ -107,7 +101,7 @@ final class AuthorisationViewController: UIViewController {
         loginButton.layer.cornerRadius = 12
         loginButton.backgroundColor = UIColor(red: 89, green: 190, blue: 199, alpha: 1)
         loginButton.setTitle(Constants.loginButtonText, for: .normal)
-        loginButton.titleLabel?.font = Fonts.verdanaBold16
+        loginButton.titleLabel?.font = Constants.verdanaBold16
         loginButton.addTarget(nil, action: #selector(loginButtonTapped), for: .touchUpInside)
         loginButton.isEnabled = false
         return loginButton
@@ -121,14 +115,14 @@ final class AuthorisationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        configureUI()
     }
 
     // MARK: - Private Methods
 
-    private func setUI() {
+    private func configureUI() {
         view.backgroundColor = UIColor(red: 120, green: 84, blue: 49, alpha: 1.0)
-        view.backgroundColor = UIColor(named: "AppCoffe")
+        view.backgroundColor = UIColor(named: "appCoffe")
 
         loginButton.alpha = 0.3
         [
@@ -139,40 +133,33 @@ final class AuthorisationViewController: UIViewController {
             passwordLabel,
             loginTextField,
             passwordTextField,
-            dividerloginView,
+            dividerLoginView,
             dividerPasswordView,
             loginButton,
             passwordVisibleButton,
         ].forEach { view.addSubview($0) }
-        passwordVisibleButton.setImage(Images.LoginInvisible, for: .normal)
+        passwordVisibleButton.setImage(Constants.LoginInvisible, for: .normal)
     }
 
     @objc private func textDidChange(_ textField: UITextField) {
         guard let loginText = loginTextField.text,
               let passwordText = passwordTextField.text
-        else {
-            return
-        }
+        else { return }
         loginButton.isEnabled = !loginText.isEmpty && !passwordText.isEmpty
         loginButton.alpha = loginButton.isEnabled ? 1.0 : 0.3
     }
 
     @objc private func loginButtonTapped() {
-        let nextViewController = CatalogViewController()
-        let navigationController = UINavigationController(rootViewController: nextViewController)
+        let catalogViewController = CatalogViewController()
+        let navigationController = UINavigationController(rootViewController: catalogViewController)
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: false, completion: nil)
     }
 
     @objc private func passwordVisibleButtonTouched() {
-        if isVisiblePassword {
-            passwordVisibleButton.setImage(Images.LoginInvisible, for: .normal)
-            isVisiblePassword = false
-            passwordTextField.isSecureTextEntry = true
-        } else {
-            passwordVisibleButton.setImage(Images.LoginVisible, for: .normal)
-            isVisiblePassword = true
-            passwordTextField.isSecureTextEntry = false
-        }
+        let image = isVisiblePassword ? Constants.LoginInvisible : Constants.LoginVisible
+        passwordVisibleButton.setImage(image, for: .normal)
+        passwordTextField.isSecureTextEntry = isVisiblePassword
+        isVisiblePassword.toggle()
     }
 }

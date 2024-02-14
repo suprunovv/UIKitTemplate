@@ -15,9 +15,6 @@ final class CatalogViewController: UIViewController {
         static let cakeText = "Пти пате аля «РюсЪ»"
         static let teaText = "Горячiя напитки"
         static let coffeText = "Кофий"
-    }
-
-    enum Fonts {
         static let verdanaBold16 = UIFont(name: "Verdana-Bold", size: 16)
         static let verdanaBold26 = UIFont(name: "Verdana-Bold", size: 26)
         static let verdanaBold12 = UIFont(name: "Verdana-Bold", size: 12)
@@ -25,30 +22,27 @@ final class CatalogViewController: UIViewController {
         static let verdana12 = UIFont(name: "Verdana", size: 12)
         static let amaticSCBold25 = UIFont(name: "AmaticSC-Bold", size: 25)
         static let verdanaBoldItalic16 = UIFont(name: "Verdana-BoldItalic", size: 16)
-    }
-
-    enum Images {
         static let logoCoffe = UIImage(named: "LogoCoffe")
         static let avatar = UIImage(named: "avatar")
         static let locationIcon = UIImage(named: "LocationIcon")
         static let underMenu = UIImage(named: "UnderMenu")
-        static let cake = UIImage(named: "Cake")
+        static let cake = UIImage(named: "cake")
         static let tea = UIImage(named: "Tea")
-        static let coffe = UIImage(named: "Coffe")
+        static let coffe = UIImage(named: "coffe")
     }
 
     // MARK: - Visual Components
 
     private let logoImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 100, y: 49, width: 175, height: 50))
-        imageView.image = Images.logoCoffe
+        imageView.image = Constants.logoCoffe
         return imageView
     }()
 
     private let helloLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 20, y: 147, width: 185, height: 44))
         label.text = Constants.helloText
-        label.font = Fonts.verdanaBold16
+        label.font = Constants.verdanaBold16
         label.numberOfLines = 2
         label.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.8)
         return label
@@ -56,7 +50,7 @@ final class CatalogViewController: UIViewController {
 
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 311, y: 147, width: 44, height: 44))
-        imageView.image = Images.avatar
+        imageView.image = Constants.avatar
         return imageView
     }()
 
@@ -77,14 +71,14 @@ final class CatalogViewController: UIViewController {
     private let adressLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 35, y: 300, width: 150, height: 15))
         label.text = Constants.adressText
-        label.font = Fonts.verdanaBold12
+        label.font = Constants.verdanaBold12
         return label
     }()
 
     private let accessAdressLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 35, y: 318, width: 260, height: 30))
         label.text = Constants.accessAdressText
-        label.font = Fonts.verdana12
+        label.font = Constants.verdana12
         label.numberOfLines = 2
         label.textColor = .lightGray
         return label
@@ -92,13 +86,13 @@ final class CatalogViewController: UIViewController {
 
     private let locationIconImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 309, y: 307, width: 20, height: 29))
-        imageView.image = Images.locationIcon
+        imageView.image = Constants.locationIcon
         return imageView
     }()
 
     private let cakeView: UIView = {
         let view = UIView(frame: CGRect(x: 20, y: 464, width: 335, height: 80))
-        view.backgroundColor = UIColor(named: "AppLightCoffe")
+        view.backgroundColor = UIColor(named: "appLightCoffe")
         view.alpha = 0.7
         view.layer.cornerRadius = 16
         return view
@@ -106,7 +100,7 @@ final class CatalogViewController: UIViewController {
 
     private let teaView: UIView = {
         let view = UIView(frame: CGRect(x: 20, y: 564, width: 335, height: 80))
-        view.backgroundColor = UIColor(named: "AppLightCoffe")
+        view.backgroundColor = UIColor(named: "appLightCoffe")
         view.alpha = 0.7
         view.layer.cornerRadius = 16
         return view
@@ -114,7 +108,7 @@ final class CatalogViewController: UIViewController {
 
     private let coffeView: UIView = {
         let view = UIView(frame: CGRect(x: 20, y: 664, width: 335, height: 80))
-        view.backgroundColor = UIColor(named: "AppLightCoffe")
+        view.backgroundColor = UIColor(named: "appLightCoffe")
         view.alpha = 0.7
         view.layer.cornerRadius = 16
         return view
@@ -133,7 +127,7 @@ final class CatalogViewController: UIViewController {
         label.text = Constants.menuText
 
         label.textAlignment = .center
-        if let font = Fonts.amaticSCBold25 {
+        if let font = Constants.amaticSCBold25 {
             label.font = font
         } else {
             label.font = .boldSystemFont(ofSize: 25)
@@ -144,46 +138,46 @@ final class CatalogViewController: UIViewController {
 
     private let underMenuImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 137, y: 410, width: 100, height: 40))
-        imageView.image = Images.underMenu
+        imageView.image = Constants.underMenu
         return imageView
     }()
 
     private let cakeImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 272, y: 469, width: 70, height: 70))
-        imageView.image = Images.cake
+        imageView.image = Constants.cake
         return imageView
     }()
 
     private let teaImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 272, y: 584, width: 70, height: 70))
-        imageView.image = Images.tea
+        imageView.image = Constants.tea
         return imageView
     }()
 
     private let coffeImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 272, y: 669, width: 70, height: 70))
-        imageView.image = Images.coffe
+        imageView.image = Constants.coffe
         return imageView
     }()
 
     private let cakeLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 45, y: 495, width: 220, height: 19))
         label.text = Constants.cakeText
-        label.font = Fonts.verdanaBoldItalic16
+        label.font = Constants.verdanaBoldItalic16
         return label
     }()
 
     private let teaLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 45, y: 594, width: 180, height: 19))
         label.text = Constants.teaText
-        label.font = Fonts.verdanaBoldItalic16
+        label.font = Constants.verdanaBoldItalic16
         return label
     }()
 
     private let coffeLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 45, y: 695, width: 180, height: 19))
         label.text = Constants.coffeText
-        label.font = Fonts.verdanaBoldItalic16
+        label.font = Constants.verdanaBoldItalic16
         return label
     }()
 
@@ -191,12 +185,12 @@ final class CatalogViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        configureUI()
     }
 
     // MARK: - Private Methods
 
-    private func setUI() {
+    private func configureUI() {
         view.backgroundColor = UIColor(red: 120, green: 84, blue: 49, alpha: 1.0)
         [
             logoImageView,

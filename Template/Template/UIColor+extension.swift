@@ -1,9 +1,9 @@
 // UIColor+extension.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
 import UIKit
 
+/// Расширение UIColor, инициация своего цвета RGB
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int, alpha: CGFloat) {
         let redValue = CGFloat(red) / 255.0

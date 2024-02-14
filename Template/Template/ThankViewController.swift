@@ -12,9 +12,7 @@ final class ThankViewController: UIViewController {
         static let thankText = "спасибо за заказъ"
         static let wishText = "Разскажи о насъ другу, отправь ему промокодъ на безплатный напитокъ "
             + "и получи скидку 10% на слѣдующій заказъ."
-    }
-
-    enum Fonts {
+        static let flowers = UIImage(named: "Flowers")
         static let verdanaBold18 = UIFont(name: "Verdana-Bold", size: 18)
         static let verdanaBold16 = UIFont(name: "Verdana-Bold", size: 16)
         static let verdanaBold26 = UIFont(name: "Verdana-Bold", size: 26)
@@ -27,10 +25,6 @@ final class ThankViewController: UIViewController {
         static let verdanaBoldItalic16 = UIFont(name: "Verdana-BoldItalic", size: 16)
     }
 
-    enum Images {
-        static let flowers = UIImage(named: "Flowers")
-    }
-
     // MARK: - Visual Components
 
     private let goodButton: UIButton = {
@@ -38,14 +32,14 @@ final class ThankViewController: UIViewController {
         button.layer.cornerRadius = 12
         button.backgroundColor = UIColor(red: 89, green: 190, blue: 199, alpha: 1)
         button.setTitle(Constants.goodText, for: .normal)
-        button.titleLabel?.font = Fonts.verdanaBold16
+        button.titleLabel?.font = Constants.verdanaBold16
         button.addTarget(nil, action: #selector(goodButtonTapped), for: .touchUpInside)
         return button
     }()
 
     private let flowersImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 92, y: 58, width: 200, height: 87))
-        imageView.image = Images.flowers
+        imageView.image = Constants.flowers
         return imageView
     }()
 
@@ -54,7 +48,7 @@ final class ThankViewController: UIViewController {
         label.text = Constants.thankText
         label.numberOfLines = 2
         label.textAlignment = .center
-        if let font = Fonts.amaticSCBold50 {
+        if let font = Constants.amaticSCBold50 {
             label.font = font
         } else {
             label.font = .boldSystemFont(ofSize: 50)
@@ -80,12 +74,12 @@ final class ThankViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUI()
+        configureUI()
     }
 
     // MARK: - Private Methods
 
-    private func setUI() {
+    private func configureUI() {
         view.backgroundColor = .white
         [
             goodButton,
