@@ -22,9 +22,9 @@ class AuthorisationViewController: UIViewController {
 
     private let passwordVisibleButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 332, y: 433, width: 22, height: 19))
-        button.alpha = 0
+        button.alpha = 1
         button.setTitle("", for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 16)
         button.addTarget(nil, action: #selector(passwordVisibleButtonTouched), for: .touchUpInside)
         return button
     }()
@@ -32,28 +32,28 @@ class AuthorisationViewController: UIViewController {
     private let signLabel: UILabel = {
         let signLabel = UILabel(frame: CGRect(x: 20, y: 280, width: 195, height: 31))
         signLabel.text = "Авторизация"
-        signLabel.font = .boldSystemFont(ofSize: 26)
+        signLabel.font = UIFont(name: "Verdana-Bold", size: 26)
         return signLabel
     }()
 
     private let loginLabel: UILabel = {
-        let emailLabel = UILabel(frame: CGRect(x: 20, y: 332, width: 175, height: 19))
-        emailLabel.text = "Логин"
-        emailLabel.font = .boldSystemFont(ofSize: 16)
-        return emailLabel
+        let label = UILabel(frame: CGRect(x: 20, y: 332, width: 175, height: 19))
+        label.text = "Логин"
+        label.font = UIFont(name: "Verdana-Bold", size: 16)
+        return label
     }()
 
     private let passwordLabel: UILabel = {
         let passwordLabel = UILabel(frame: CGRect(x: 20, y: 407, width: 175, height: 19))
         passwordLabel.text = "Пароль"
-        passwordLabel.font = .boldSystemFont(ofSize: 16)
+        passwordLabel.font = UIFont(name: "Verdana-Bold", size: 16)
         return passwordLabel
     }()
 
     private let loginTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 361, width: 175, height: 17))
         textField.placeholder = "Введите логин"
-        textField.font = .systemFont(ofSize: 14)
+        textField.font = UIFont(name: "Verdana", size: 14)
         textField.addTarget(nil, action: #selector(textDidChange(_:)), for: .editingChanged)
         return textField
     }()
@@ -61,22 +61,22 @@ class AuthorisationViewController: UIViewController {
     private let passwordTextField: UITextField = {
         let passwordTextField = UITextField(frame: CGRect(x: 20, y: 436, width: 175, height: 17))
         passwordTextField.placeholder = "Введите пароль"
-        passwordTextField.font = .systemFont(ofSize: 14)
+        passwordTextField.font = UIFont(name: "Verdana", size: 14)
         passwordTextField.addTarget(nil, action: #selector(textDidChange(_:)), for: .editingChanged)
         passwordTextField.isSecureTextEntry = true
         return passwordTextField
     }()
 
-    private let lineloginView: UIView = {
-        let lineView = UIView(frame: CGRect(x: 20, y: 386, width: 335, height: 1))
-        lineView.backgroundColor = .lightGray
-        return lineView
+    private let dividerloginView: UIView = {
+        let dividerView = UIView(frame: CGRect(x: 20, y: 386, width: 335, height: 1))
+        dividerView.backgroundColor = .lightGray
+        return dividerView
     }()
 
-    private let linePasswordView: UIView = {
-        let lineView = UIView(frame: CGRect(x: 20, y: 462, width: 335, height: 1))
-        lineView.backgroundColor = .lightGray
-        return lineView
+    private let dividerPasswordView: UIView = {
+        let dividerView = UIView(frame: CGRect(x: 20, y: 462, width: 335, height: 1))
+        dividerView.backgroundColor = .lightGray
+        return dividerView
     }()
 
     private let loginButton: UIButton = {
@@ -84,19 +84,15 @@ class AuthorisationViewController: UIViewController {
         loginButton.layer.cornerRadius = 12
         loginButton.backgroundColor = UIColor(red: 89, green: 190, blue: 199, alpha: 1)
         loginButton.setTitle("Войти", for: .normal)
-        loginButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        loginButton.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 16)
         loginButton.addTarget(nil, action: #selector(loginButtonTapped), for: .touchUpInside)
         loginButton.isEnabled = false
         return loginButton
     }()
 
-    // MARK: - Public Properties
-
     // MARK: - Private Properties
 
     private var isVisiblePassword = false
-
-    // MARK: - Initializers
 
     // MARK: - Life Cycle
 
@@ -105,17 +101,12 @@ class AuthorisationViewController: UIViewController {
         setUI()
     }
 
-    // MARK: - Public Methods
-
-    // MARK: - IBAction
-
     // MARK: - Private Methods
 
     private func setUI() {
         view.backgroundColor = UIColor(red: 120, green: 84, blue: 49, alpha: 1.0)
         view.backgroundColor = UIColor(named: "AppCoffe")
-            
-        passwordVisibleButton.setImage(UIImage(named: "LoginInvisible"), for: .normal)
+
         loginButton.alpha = 0.3
         [
             authorisationView,
@@ -125,11 +116,12 @@ class AuthorisationViewController: UIViewController {
             passwordLabel,
             loginTextField,
             passwordTextField,
-            lineloginView,
-            linePasswordView,
+            dividerloginView,
+            dividerPasswordView,
             loginButton,
             passwordVisibleButton,
         ].forEach { view.addSubview($0) }
+        passwordVisibleButton.setImage(UIImage(named: "LoginInvisible"), for: .normal)
     }
 
     @objc private func textDidChange(_ textField: UITextField) {

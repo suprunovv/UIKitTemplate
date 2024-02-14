@@ -5,12 +5,6 @@ import UIKit
 
 // экран каталог
 class CatalogViewController: UIViewController {
-    // MARK: - Types
-
-    // MARK: - Constants
-
-    // MARK: - IBOutlets
-
     // MARK: - Visual Components
 
     private let logoImageView: UIImageView = {
@@ -22,7 +16,7 @@ class CatalogViewController: UIViewController {
     private let helloLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 20, y: 147, width: 185, height: 44))
         label.text = "Добро пожаловать, Гость"
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = UIFont(name: "Verdana-Bold", size: 16)
         label.numberOfLines = 2
         label.textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.8)
         return label
@@ -51,16 +45,16 @@ class CatalogViewController: UIViewController {
     private let adressLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 35, y: 300, width: 150, height: 15))
         label.text = "Адреса кофеен"
-        label.font = .boldSystemFont(ofSize: 12)
+        label.font = UIFont(name: "Verdana-Bold", size: 12)
         return label
     }()
 
     private let accessAdressLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 35, y: 318, width: 260, height: 30))
         label.text = "Разрѣшите доступъ къ ​геолокаціи для поиска ближайшей кофейни "
-        label.font = .boldSystemFont(ofSize: 12)
+        label.font = UIFont(name: "Verdana", size: 12)
         label.numberOfLines = 2
-        label.textColor = UIColor(red: 156, green: 161, blue: 168, alpha: 1)
+        label.textColor = .lightGray
         return label
     }()
 
@@ -72,21 +66,24 @@ class CatalogViewController: UIViewController {
 
     private let cakeView: UIView = {
         let view = UIView(frame: CGRect(x: 20, y: 464, width: 335, height: 80))
-        view.backgroundColor = UIColor(red: 225, green: 194, blue: 160, alpha: 0.7)
+        view.backgroundColor = UIColor(named: "AppLightCoffe")
+        view.alpha = 0.7
         view.layer.cornerRadius = 16
         return view
     }()
 
     private let teaView: UIView = {
         let view = UIView(frame: CGRect(x: 20, y: 564, width: 335, height: 80))
-        view.backgroundColor = UIColor(red: 225, green: 194, blue: 160, alpha: 0.7)
+        view.backgroundColor = UIColor(named: "AppLightCoffe")
+        view.alpha = 0.7
         view.layer.cornerRadius = 16
         return view
     }()
 
     private let coffeView: UIView = {
         let view = UIView(frame: CGRect(x: 20, y: 664, width: 335, height: 80))
-        view.backgroundColor = UIColor(red: 225, green: 194, blue: 160, alpha: 0.7)
+        view.backgroundColor = UIColor(named: "AppLightCoffe")
+        view.alpha = 0.7
         view.layer.cornerRadius = 16
         return view
     }()
@@ -140,29 +137,23 @@ class CatalogViewController: UIViewController {
     private let cakeLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 45, y: 495, width: 220, height: 19))
         label.text = "Пти пате аля «РюсЪ»"
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = UIFont(name: "Verdana-BoldItalic", size: 16)
         return label
     }()
 
     private let teaLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 45, y: 594, width: 180, height: 19))
         label.text = "Горячiя напитки"
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = UIFont(name: "Verdana-BoldItalic", size: 16)
         return label
     }()
 
     private let coffeLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 45, y: 695, width: 180, height: 19))
         label.text = "Кофий"
-        label.font = .boldSystemFont(ofSize: 16)
+        label.font = UIFont(name: "Verdana-BoldItalic", size: 16)
         return label
     }()
-
-    // MARK: - Public Properties
-
-    // MARK: - Private Properties
-
-    // MARK: - Initializers
 
     // MARK: - Life Cycle
 
@@ -202,7 +193,7 @@ class CatalogViewController: UIViewController {
     }
 
     @objc private func coffeButtonTapped() {
-        let detailViewController = SmsViewController()
+        let detailViewController = DetailViewController()
         navigationController?.pushViewController(detailViewController, animated: true)
     }
 }

@@ -5,12 +5,6 @@ import UIKit
 
 /// экран с кодом из смс
 class SmsViewController: UIViewController {
-    // MARK: - Types
-
-    // MARK: - Constants
-
-    // MARK: - IBOutlets
-
     // MARK: - Visual Components
 
     private let descriptionSmsLabel: UILabel = {
@@ -54,12 +48,6 @@ class SmsViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Public Properties
-
-    // MARK: - Private Properties
-
-    // MARK: - Initializers
-
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -101,6 +89,7 @@ class SmsViewController: UIViewController {
 
     @objc private func confirmButtonTapped() {
         let nextViewController = ThankViewController()
+        nextViewController.mainNavigationController = navigationController
         nextViewController.modalPresentationStyle = .fullScreen
         present(nextViewController, animated: false, completion: nil)
     }

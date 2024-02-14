@@ -5,12 +5,6 @@ import UIKit
 
 /// экран спасибо за заказ
 class ThankViewController: UIViewController {
-    // MARK: - Types
-
-    // MARK: - Constants
-
-    // MARK: - IBOutlets
-
     // MARK: - Visual Components
 
     private let goodButton: UIButton = {
@@ -55,9 +49,7 @@ class ThankViewController: UIViewController {
 
     // MARK: - Public Properties
 
-    // MARK: - Private Properties
-
-    // MARK: - Initializers
+    var mainNavigationController: UINavigationController?
 
     // MARK: - Life Cycle
 
@@ -65,10 +57,6 @@ class ThankViewController: UIViewController {
         super.viewDidLoad()
         setUI()
     }
-
-    // MARK: - Public Methods
-
-    // MARK: - IBAction
 
     // MARK: - Private Methods
 
@@ -81,8 +69,7 @@ class ThankViewController: UIViewController {
     }
 
     @objc private func goodButtonTapped() {
-        let nextViewController = AuthorisationViewController()
-        nextViewController.modalPresentationStyle = .fullScreen
-        present(nextViewController, animated: false, completion: nil)
+        mainNavigationController?.popToRootViewController(animated: true)
+        dismiss(animated: true)
     }
 }

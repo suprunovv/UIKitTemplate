@@ -60,6 +60,7 @@
 		52E87EFA2B71A3EB00B764D2 = {
 			isa = PBXGroup;
 			children = (
+				44312F8D2B7BF035007BD47E /* Colors.xcassets */,
 				52E87F052B71A3EB00B764D2 /* Template */,
 				52E87F042B71A3EB00B764D2 /* Products */,
 			);
@@ -76,7 +77,6 @@
 		52E87F052B71A3EB00B764D2 /* Template */ = {
 			isa = PBXGroup;
 			children = (
-				44312F8D2B7BF035007BD47E /* Colors.xcassets */,
 				52E87F062B71A3EB00B764D2 /* AppDelegate.swift */,
 				52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */,
 				52E87F972B7A4CC700B764D2 /* Controllers\ */,
@@ -94,12 +94,12 @@
 			children = (
 				52E87F872B7A4AF200B764D2 /* AuthorisationViewController.swift */,
 				52E87F892B7A4B8400B764D2 /* CatalogViewController.swift */,
+				52E87F932B7A4C6300B764D2 /* SmsViewController.swift */,
+				52E87F952B7A4CA800B764D2 /* ThankViewController.swift */,
 				52E87F8B2B7A4BAE00B764D2 /* CoffeRoastViewController.swift */,
 				52E87F8D2B7A4BD400B764D2 /* DetailViewController.swift */,
 				52E87F8F2B7A4C0B00B764D2 /* OptionsViewController.swift */,
 				52E87F912B7A4C3900B764D2 /* OrderViewController.swift */,
-				52E87F932B7A4C6300B764D2 /* SmsViewController.swift */,
-				52E87F952B7A4CA800B764D2 /* ThankViewController.swift */,
 			);
 			path = "Controllers\\";
 			sourceTree = "<group>";
