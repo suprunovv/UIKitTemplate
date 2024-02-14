@@ -12,12 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
-    ) {
-        guard let sce = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: sce)
-        window?.rootViewController = UINavigationController(rootViewController: DetailViewController())
-        window?.makeKeyAndVisible()
-    }
+    ) {}
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
