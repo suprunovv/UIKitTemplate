@@ -157,14 +157,14 @@ final class AuthorisationViewController: UIViewController {
         loginButton.alpha = loginButton.isEnabled ? 1.0 : 0.3
     }
 
-    @objc func loginButtonTapped() {
+    @objc private func loginButtonTapped() {
         let nextViewController = CatalogViewController()
         let navigationController = UINavigationController(rootViewController: nextViewController)
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: false, completion: nil)
     }
 
-    @objc func passwordVisibleButtonTouched() {
+    @objc private func passwordVisibleButtonTouched() {
         if isVisiblePassword {
             passwordVisibleButton.setImage(Images.LoginInvisible, for: .normal)
             isVisiblePassword = false
