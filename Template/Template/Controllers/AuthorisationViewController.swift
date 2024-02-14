@@ -6,7 +6,6 @@ import UIKit
 /// экран регистрации
 final class AuthorisationViewController: UIViewController {
     // MARK: - Constants
-
     enum Constants {
         static let authorisationText = "Авторизация"
         static let loginText = "Логин"
@@ -21,7 +20,6 @@ final class AuthorisationViewController: UIViewController {
         static let LoginInvisible = UIImage(named: "LoginInvisible")
         static let LoginVisible = UIImage(named: "LoginVisible")
     }
-
     // MARK: - Visual Components
 
     private let authorisationView: UIView = {
