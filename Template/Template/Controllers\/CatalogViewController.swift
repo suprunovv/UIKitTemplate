@@ -4,7 +4,7 @@
 import UIKit
 
 // экран каталог
-class CatalogViewController: UIViewController {
+final class CatalogViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {

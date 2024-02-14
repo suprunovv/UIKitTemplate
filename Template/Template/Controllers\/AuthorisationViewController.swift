@@ -4,7 +4,7 @@
 import UIKit
 
 /// экран регистрации
-class AuthorisationViewController: UIViewController {
+final class AuthorisationViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {

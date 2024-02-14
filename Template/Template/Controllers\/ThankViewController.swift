@@ -4,7 +4,7 @@
 import UIKit
 
 /// экран спасибо за заказ
-class ThankViewController: UIViewController {
+final class ThankViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {

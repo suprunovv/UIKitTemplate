@@ -4,7 +4,7 @@
 import UIKit
 
 /// экран с кодом из смс
-class SmsViewController: UIViewController {
+final class SmsViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
