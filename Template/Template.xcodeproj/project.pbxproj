@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44312F8E2B7BF035007BD47E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44312F8D2B7BF035007BD47E /* Colors.xcassets */; };
+		447202032B7B4BE0000CAEF9 /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52DF95B72B7A50360095027A /* AmaticSC-Bold.ttf */; };
+		447202042B7B4D5C000CAEF9 /* AmaticSC-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 52DF95B62B7A50360095027A /* AmaticSC-Regular.ttf */; };
+		4481CB9B2B7AA677008B66DF /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4481CB9A2B7AA677008B66DF /* UIColor+extension.swift */; };
+		44BE9A1D2B7D332E006C5C26 /* AuthorisationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BE9A1C2B7D332E006C5C26 /* AuthorisationViewController.swift */; };
+		44BE9A1E2B7D33A1006C5C26 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F8F2B7A4C0B00B764D2 /* OptionsViewController.swift */; };
 		52DF95BA2B7A679C0095027A /* DetailControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95B92B7A679C0095027A /* DetailControllerView.swift */; };
 		52DF95BC2B7A81F00095027A /* CoffeRoastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95BB2B7A81F00095027A /* CoffeRoastView.swift */; };
 		52DF95BE2B7A87B10095027A /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95BD2B7A87B00095027A /* CustomButtonView.swift */; };
@@ -19,17 +25,18 @@
 		52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */; };
 		52E87F102B71A3EE00B764D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */; };
 		52E87F132B71A3EE00B764D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F112B71A3EE00B764D2 /* LaunchScreen.storyboard */; };
-		52E87F882B7A4AF200B764D2 /* AuthorisationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F872B7A4AF200B764D2 /* AuthorisationViewController.swift */; };
 		52E87F8A2B7A4B8400B764D2 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F892B7A4B8400B764D2 /* CatalogViewController.swift */; };
 		52E87F8C2B7A4BAE00B764D2 /* CoffeRoastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F8B2B7A4BAE00B764D2 /* CoffeRoastViewController.swift */; };
 		52E87F8E2B7A4BD400B764D2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F8D2B7A4BD400B764D2 /* DetailViewController.swift */; };
-		52E87F902B7A4C0B00B764D2 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F8F2B7A4C0B00B764D2 /* OptionsViewController.swift */; };
 		52E87F922B7A4C3900B764D2 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F912B7A4C3900B764D2 /* OrderViewController.swift */; };
 		52E87F942B7A4C6300B764D2 /* SmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F932B7A4C6300B764D2 /* SmsViewController.swift */; };
 		52E87F962B7A4CA800B764D2 /* ThankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F952B7A4CA800B764D2 /* ThankViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44312F8D2B7BF035007BD47E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		4481CB9A2B7AA677008B66DF /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
+		44BE9A1C2B7D332E006C5C26 /* AuthorisationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorisationViewController.swift; sourceTree = "<group>"; };
 		52DF95B62B7A50360095027A /* AmaticSC-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Regular.ttf"; sourceTree = "<group>"; };
 		52DF95B72B7A50360095027A /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		52DF95B92B7A679C0095027A /* DetailControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailControllerView.swift; sourceTree = "<group>"; };
@@ -46,7 +53,6 @@
 		52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52E87F122B71A3EE00B764D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52E87F142B71A3EE00B764D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52E87F872B7A4AF200B764D2 /* AuthorisationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorisationViewController.swift; sourceTree = "<group>"; };
 		52E87F892B7A4B8400B764D2 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		52E87F8B2B7A4BAE00B764D2 /* CoffeRoastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeRoastViewController.swift; sourceTree = "<group>"; };
 		52E87F8D2B7A4BD400B764D2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +105,7 @@
 		52E87EFA2B71A3EB00B764D2 = {
 			isa = PBXGroup;
 			children = (
+				44312F8D2B7BF035007BD47E /* Colors.xcassets */,
 				52E87F052B71A3EB00B764D2 /* Template */,
 				52E87F042B71A3EB00B764D2 /* Products */,
 			);
@@ -118,30 +125,31 @@
 				52E87F062B71A3EB00B764D2 /* AppDelegate.swift */,
 				52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */,
 				52DF95C12B7AB3A20095027A /* Model */,
-				52E87F972B7A4CC700B764D2 /* Controllers\ */,
+				52E87F972B7A4CC700B764D2 /* Controllers */,
 				52DF95F22B7C0A0A0095027A /* Extension */,
 				52DF95B82B7A67790095027A /* Views */,
 				52E87F982B7A4D0A00B764D2 /* Font */,
 				52E87F112B71A3EE00B764D2 /* LaunchScreen.storyboard */,
 				52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */,
 				52E87F142B71A3EE00B764D2 /* Info.plist */,
+				4481CB9A2B7AA677008B66DF /* UIColor+extension.swift */,
 			);
 			path = Template;
 			sourceTree = "<group>";
 		};
-		52E87F972B7A4CC700B764D2 /* Controllers\ */ = {
+		52E87F972B7A4CC700B764D2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				52E87F872B7A4AF200B764D2 /* AuthorisationViewController.swift */,
+				44BE9A1C2B7D332E006C5C26 /* AuthorisationViewController.swift */,
 				52E87F892B7A4B8400B764D2 /* CatalogViewController.swift */,
+				52E87F932B7A4C6300B764D2 /* SmsViewController.swift */,
+				52E87F952B7A4CA800B764D2 /* ThankViewController.swift */,
 				52E87F8D2B7A4BD400B764D2 /* DetailViewController.swift */,
 				52E87F8B2B7A4BAE00B764D2 /* CoffeRoastViewController.swift */,
 				52E87F8F2B7A4C0B00B764D2 /* OptionsViewController.swift */,
 				52E87F912B7A4C3900B764D2 /* OrderViewController.swift */,
-				52E87F932B7A4C6300B764D2 /* SmsViewController.swift */,
-				52E87F952B7A4CA800B764D2 /* ThankViewController.swift */,
 			);
-			path = "Controllers\\";
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		52E87F982B7A4D0A00B764D2 /* Font */ = {
@@ -213,7 +221,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44312F8E2B7BF035007BD47E /* Colors.xcassets in Resources */,
+				447202042B7B4D5C000CAEF9 /* AmaticSC-Regular.ttf in Resources */,
 				52E87F132B71A3EE00B764D2 /* LaunchScreen.storyboard in Resources */,
+				447202032B7B4BE0000CAEF9 /* AmaticSC-Bold.ttf in Resources */,
 				52E87F102B71A3EE00B764D2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,17 +284,18 @@
 				52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */,
 				52DF95CB2B7B89A30095027A /* OrderControllerView.swift in Sources */,
 				52DF95BC2B7A81F00095027A /* CoffeRoastView.swift in Sources */,
+				44BE9A1D2B7D332E006C5C26 /* AuthorisationViewController.swift in Sources */,
 				52E87F8C2B7A4BAE00B764D2 /* CoffeRoastViewController.swift in Sources */,
 				52DF95C92B7ADC190095027A /* CancelButton.swift in Sources */,
 				52E87F962B7A4CA800B764D2 /* ThankViewController.swift in Sources */,
-				52E87F902B7A4C0B00B764D2 /* OptionsViewController.swift in Sources */,
 				52DF95BA2B7A679C0095027A /* DetailControllerView.swift in Sources */,
 				52E87F942B7A4C6300B764D2 /* SmsViewController.swift in Sources */,
 				52DF95C52B7ACB300095027A /* UILabel+Extension.swift in Sources */,
+				44BE9A1E2B7D33A1006C5C26 /* OptionsViewController.swift in Sources */,
 				52E87F8E2B7A4BD400B764D2 /* DetailViewController.swift in Sources */,
 				52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */,
 				52DF95C32B7AB5EB0095027A /* OptionsControllerView.swift in Sources */,
-				52E87F882B7A4AF200B764D2 /* AuthorisationViewController.swift in Sources */,
+				4481CB9B2B7AA677008B66DF /* UIColor+extension.swift in Sources */,
 				52DF95C02B7AB39A0095027A /* CofeModel.swift in Sources */,
 				52E87F922B7A4C3900B764D2 /* OrderViewController.swift in Sources */,
 			);
@@ -426,6 +438,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Template/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -452,6 +465,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Template/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
