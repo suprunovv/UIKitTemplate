@@ -5,6 +5,29 @@ import UIKit
 
 /// экран регистрации
 class AuthorisationViewController: UIViewController {
+    // MARK: - Constants
+
+    enum Constants {
+        static let authorisationText = "Авторизация"
+        static let loginText = "Логин"
+        static let passwordText = "Пароль"
+        static let loginPlaceholder = "Введите логин"
+        static let passwordPlaceholder = "Введите пароль"
+        static let loginButtonText = "Войти"
+    }
+
+    enum Fonts {
+        static let verdanaBold16 = UIFont(name: "Verdana-Bold", size: 16)
+        static let verdanaBold26 = UIFont(name: "Verdana-Bold", size: 26)
+        static let verdana14 = UIFont(name: "Verdana", size: 14)
+    }
+
+    enum Images {
+        static let logoCoffe = UIImage(named: "LogoCoffe")
+        static let LoginInvisible = UIImage(named: "LoginInvisible")
+        static let LoginVisible = UIImage(named: "LoginVisible")
+    }
+
     // MARK: - Visual Components
 
     private let authorisationView: UIView = {
@@ -16,7 +39,7 @@ class AuthorisationViewController: UIViewController {
 
     private let logoImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 100, y: 103, width: 175, height: 50))
-        imageView.image = UIImage(named: "LogoCoffe")
+        imageView.image = Images.logoCoffe
         return imageView
     }()
 
@@ -24,44 +47,44 @@ class AuthorisationViewController: UIViewController {
         let button = UIButton(frame: CGRect(x: 332, y: 433, width: 22, height: 19))
         button.alpha = 1
         button.setTitle("", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 16)
+        button.titleLabel?.font = Fonts.verdanaBold16
         button.addTarget(nil, action: #selector(passwordVisibleButtonTouched), for: .touchUpInside)
         return button
     }()
 
     private let signLabel: UILabel = {
         let signLabel = UILabel(frame: CGRect(x: 20, y: 280, width: 195, height: 31))
-        signLabel.text = "Авторизация"
-        signLabel.font = UIFont(name: "Verdana-Bold", size: 26)
+        signLabel.text = Constants.authorisationText
+        signLabel.font = Fonts.verdanaBold26
         return signLabel
     }()
 
     private let loginLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 20, y: 332, width: 175, height: 19))
-        label.text = "Логин"
-        label.font = UIFont(name: "Verdana-Bold", size: 16)
+        label.text = Constants.loginText
+        label.font = Fonts.verdanaBold16
         return label
     }()
 
     private let passwordLabel: UILabel = {
         let passwordLabel = UILabel(frame: CGRect(x: 20, y: 407, width: 175, height: 19))
-        passwordLabel.text = "Пароль"
-        passwordLabel.font = UIFont(name: "Verdana-Bold", size: 16)
+        passwordLabel.text = Constants.passwordText
+        passwordLabel.font = Fonts.verdanaBold16
         return passwordLabel
     }()
 
     private let loginTextField: UITextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 361, width: 175, height: 17))
-        textField.placeholder = "Введите логин"
-        textField.font = UIFont(name: "Verdana", size: 14)
+        textField.placeholder = Constants.loginPlaceholder
+        textField.font = Fonts.verdana14
         textField.addTarget(nil, action: #selector(textDidChange(_:)), for: .editingChanged)
         return textField
     }()
 
     private let passwordTextField: UITextField = {
         let passwordTextField = UITextField(frame: CGRect(x: 20, y: 436, width: 175, height: 17))
-        passwordTextField.placeholder = "Введите пароль"
-        passwordTextField.font = UIFont(name: "Verdana", size: 14)
+        passwordTextField.placeholder = Constants.passwordPlaceholder
+        passwordTextField.font = Fonts.verdana14
         passwordTextField.addTarget(nil, action: #selector(textDidChange(_:)), for: .editingChanged)
         passwordTextField.isSecureTextEntry = true
         return passwordTextField
@@ -83,8 +106,8 @@ class AuthorisationViewController: UIViewController {
         let loginButton = UIButton(frame: CGRect(x: 20, y: 664, width: 335, height: 44))
         loginButton.layer.cornerRadius = 12
         loginButton.backgroundColor = UIColor(red: 89, green: 190, blue: 199, alpha: 1)
-        loginButton.setTitle("Войти", for: .normal)
-        loginButton.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 16)
+        loginButton.setTitle(Constants.loginButtonText, for: .normal)
+        loginButton.titleLabel?.font = Fonts.verdanaBold16
         loginButton.addTarget(nil, action: #selector(loginButtonTapped), for: .touchUpInside)
         loginButton.isEnabled = false
         return loginButton
@@ -121,7 +144,7 @@ class AuthorisationViewController: UIViewController {
             loginButton,
             passwordVisibleButton,
         ].forEach { view.addSubview($0) }
-        passwordVisibleButton.setImage(UIImage(named: "LoginInvisible"), for: .normal)
+        passwordVisibleButton.setImage(Images.LoginInvisible, for: .normal)
     }
 
     @objc private func textDidChange(_ textField: UITextField) {
@@ -143,11 +166,11 @@ class AuthorisationViewController: UIViewController {
 
     @objc func passwordVisibleButtonTouched() {
         if isVisiblePassword {
-            passwordVisibleButton.setImage(UIImage(named: "LoginInvisible"), for: .normal)
+            passwordVisibleButton.setImage(Images.LoginInvisible, for: .normal)
             isVisiblePassword = false
             passwordTextField.isSecureTextEntry = true
         } else {
-            passwordVisibleButton.setImage(UIImage(named: "LoginVisible"), for: .normal)
+            passwordVisibleButton.setImage(Images.LoginVisible, for: .normal)
             isVisiblePassword = true
             passwordTextField.isSecureTextEntry = false
         }
