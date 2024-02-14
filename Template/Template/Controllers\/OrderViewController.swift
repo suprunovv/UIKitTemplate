@@ -6,6 +6,7 @@ import UIKit
 /// экран с итоговой суммой
 final class OrderViewController: UIViewController {
     // MARK: - Constants
+
     enum Constants {
         static let startFrameY = 191
         static let frameYSpace = 36

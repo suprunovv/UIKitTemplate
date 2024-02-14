@@ -6,6 +6,7 @@ import UIKit
 /// вью экнана с доп опциями
 final class OptionsControllerView: UIView {
     // MARK: - Constants
+
     enum Constants {
         static let optionLabelsTexts = [
             "Молоко + 50 руб",

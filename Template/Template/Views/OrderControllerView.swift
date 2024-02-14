@@ -5,6 +5,8 @@ import UIKit
 
 /// Вью экрана с ордером
 final class OrderControllerView: UIView {
+    // MARK: - Constants
+
     enum Constants {
         static let priceLabelText = "Цѣна - 200 руб"
         static let coffeNameLabelText = "Американо"

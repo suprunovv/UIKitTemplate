@@ -6,6 +6,7 @@ import UIKit
 /// расширение лейла с окрашиванием части строки
 extension UILabel {
     // MARK: - Constants
+
     enum Constants {
         static let price50 = "+ 50 руб"
         static let price70 = "+ 70 руб"
