@@ -4,8 +4,4 @@
 import UIKit
 
 // экран каталог
-class CatalogViewController: UIViewController {
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-}
+
