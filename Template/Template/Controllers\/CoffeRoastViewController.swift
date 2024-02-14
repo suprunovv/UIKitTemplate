@@ -5,6 +5,15 @@ import UIKit
 
 // экран с выбором обжарки
 final class CoffeRoastViewController: UIViewController {
+    // MARK: - Constants
+
+    enum Constants {
+        static let blackRoastImageName = "темнаяОбж"
+        static let whiteRoastImageName = "светлаяОбж"
+        static let blackRoastText = "Темная\nобжарка"
+        static let whiteRoastText = "Свѣтлая\nобжарка"
+    }
+
     // MARK: - Public Properties
 
     let mainView = CoffeRoastView()
@@ -40,14 +49,20 @@ final class CoffeRoastViewController: UIViewController {
 
     /// метод для передачи темной обжарки делегату
     @objc private func transferBlack() {
-        delegate?.transfer("темнаяОбж", text: "Темная\nобжарка")
+        delegate?.transfer(
+            Constants.blackRoastImageName,
+            text: Constants.blackRoastText
+        )
         mainView.blackButtonRoastView.layer.borderWidth = 1
         mainView.whiteButtonRoastView.layer.borderWidth = 0
     }
 
     /// метод для передачи светлой обжарки делегату
     @objc private func transferWhite() {
-        delegate?.transfer("светлаяОбж", text: "Свѣтлая\nобжарка")
+        delegate?.transfer(
+            Constants.whiteRoastImageName,
+            text: Constants.whiteRoastText
+        )
         mainView.blackButtonRoastView.layer.borderWidth = 0
         mainView.whiteButtonRoastView.layer.borderWidth = 1
     }

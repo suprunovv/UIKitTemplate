@@ -5,11 +5,23 @@ import UIKit
 
 /// вью экнана с доп опциями
 final class OptionsControllerView: UIView {
+    // MARK: - Constants
+    enum Constants {
+        static let optionLabelsTexts = [
+            "Молоко + 50 руб",
+            "Сироп + 20 руб",
+            "Молоко соевое + 50 руб",
+            "Молоко миндальное + 70 руб",
+            "Эспрессо 50мл + 50 руб"
+        ]
+        static let titleLabelText = "Выберите дополнительные\nингредіенты"
+    }
+
     // MARK: - Visual Components
 
     /// заглавный лейбл
     private let titleLabel = UILabel(
-        text: "Выберите дополнительные\nингредіенты",
+        text: Constants.titleLabelText,
         color: .black,
         aligment: .center,
         font: .boldSystemFont(ofSize: 18),
@@ -88,15 +100,8 @@ final class OptionsControllerView: UIView {
 
     /// метод отрисовывает лейлы с названиями компонентов и их ценой
     private func setOptionsLabel() {
-        let labelTexts = [
-            "Молоко + 50 руб",
-            "Сироп + 20 руб",
-            "Молоко соевое + 50 руб",
-            "Молоко миндальное + 70 руб",
-            "Эспрессо 50мл + 50 руб"
-        ]
         var startY = 124
-        for text in labelTexts {
+        for text in Constants.optionLabelsTexts {
             let label = UILabel(
                 text: text,
                 color: .black,

@@ -5,6 +5,20 @@ import UIKit
 
 /// вью экрана с деталями
 final class DetailControllerView: UIView {
+    // MARK: - Constants
+
+    enum Constants {
+        static let coffeImageNames = ["кофе", "капучино", "латте"]
+        static let blackRoastText = "Темная\nобжарка"
+        static let coffeNames = ["Американо", "Капучино", "Латте"]
+        static let backgroundColor = "backColor"
+        static let modificationLabelText = "Модификация"
+        static let priceLabelText = "Цѣна - 100 руб"
+        static let ingridientsViewText = "Дополнительные\nингредіенты"
+        static let bottomButtonColorName = "buttonColor"
+        static let bottomButtonText = "Заказать"
+    }
+
     // MARK: - Visual Components
 
     /// главная имеджВью с картинкой коффе
@@ -15,7 +29,7 @@ final class DetailControllerView: UIView {
             width: 150,
             height: 150
         ))
-        imageView.image = UIImage(named: "кофе")
+        imageView.image = UIImage(named: Constants.coffeImageNames[0])
         return imageView
     }()
 
@@ -27,14 +41,14 @@ final class DetailControllerView: UIView {
             width: 375,
             height: 356
         ))
-        view.backgroundColor = UIColor(named: "backColor")
+        view.backgroundColor = UIColor(named: Constants.backgroundColor)
         view.layer.cornerRadius = 20
         return view
     }()
 
     /// лейбл с текстом "Модификация"
     private let modificationLabel = UILabel(
-        text: "Модификация",
+        text: Constants.modificationLabelText,
         color: .black,
         aligment: .left,
         font: .boldSystemFont(ofSize: 18),
@@ -48,7 +62,7 @@ final class DetailControllerView: UIView {
     )
     /// лейбл с ценой
     var priceLabel = UILabel(
-        text: "Цѣна - 100 руб",
+        text: Constants.priceLabelText,
         color: .black,
         aligment: .right,
         font: .boldSystemFont(ofSize: 18),
@@ -65,11 +79,7 @@ final class DetailControllerView: UIView {
 
     /// сегмент контрол с выбором кофе
     lazy var coffeSegmentControl: UISegmentedControl = {
-        let segment = UISegmentedControl(items: [
-            "Американо",
-            "Капучино",
-            "Латте"
-        ])
+        let segment = UISegmentedControl(items: Constants.coffeNames)
         segment.selectedSegmentIndex = 0
         segment.frame = CGRect(
             x: 15,
@@ -88,12 +98,12 @@ final class DetailControllerView: UIView {
             width: 165,
             height: 165
         ))
-        button.textLabel.text = "Темная\nобжарка"
+        button.textLabel.text = Constants.blackRoastText
         return button
     }()
 
     /// кнопка/вьюха с ингридиентами
-    var ingridientsRoastView: CustomButtonView = {
+    var ingridientsView: CustomButtonView = {
         let button = CustomButtonView(frame: CGRect(
             x: 195,
             y: 482,
@@ -107,7 +117,7 @@ final class DetailControllerView: UIView {
             width: 27.19,
             height: 27.19
         )
-        button.textLabel.text = "Дополнительные\nингредіенты"
+        button.textLabel.text = Constants.ingridientsViewText
         return button
     }()
 
@@ -120,10 +130,10 @@ final class DetailControllerView: UIView {
             width: 345,
             height: 53
         )
-        button.setTitle("Заказать", for: .normal)
+        button.setTitle(Constants.bottomButtonText, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.tintColor = .white
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = UIColor(named: Constants.bottomButtonColorName)
         button.layer.cornerRadius = 12
         return button
     }()
@@ -149,7 +159,7 @@ final class DetailControllerView: UIView {
         addSubview(coffeSegmentControl)
         addSubview(modificationLabel)
         addSubview(buttonRoastView)
-        addSubview(ingridientsRoastView)
+        addSubview(ingridientsView)
         addSubview(orderButton)
         addSubview(priceLabel)
     }

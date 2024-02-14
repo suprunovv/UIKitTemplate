@@ -5,11 +5,20 @@ import UIKit
 
 /// вью экрана с выбором обжарки
 final class CoffeRoastView: UIView {
+    // MARK: - Constants
+
+    enum Constants {
+        static let titleLabelText = "Уточните обжарку зеренъ"
+        static let blackRoastText = "Темная\nобжарка"
+        static let whiteRoastImageName = "светлаяОбж"
+        static let whiteRoastText = "Свѣтлая\nобжарка"
+    }
+
     // MARK: - Visual Components
 
     /// заглавный лейбл
     private let titleLabel = UILabel(
-        text: "Уточните обжарку зеренъ",
+        text: Constants.titleLabelText,
         color: .black,
         aligment: .center,
         font: .boldSystemFont(ofSize: 18),
@@ -30,7 +39,7 @@ final class CoffeRoastView: UIView {
             width: 165,
             height: 165
         ))
-        button.textLabel.text = "Темная\nобжарка"
+        button.textLabel.text = Constants.blackRoastText
         return button
     }()
 
@@ -42,8 +51,8 @@ final class CoffeRoastView: UIView {
             width: 165,
             height: 165
         ))
-        button.imageView.image = UIImage(named: "светлаяОбж")
-        button.textLabel.text = "Свѣтлая\nобжарка"
+        button.imageView.image = UIImage(named: Constants.whiteRoastImageName)
+        button.textLabel.text = Constants.whiteRoastText
         return button
     }()
 

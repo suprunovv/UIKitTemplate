@@ -12,7 +12,7 @@
 		52DF95BE2B7A87B10095027A /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95BD2B7A87B00095027A /* CustomButtonView.swift */; };
 		52DF95C02B7AB39A0095027A /* CofeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95BF2B7AB39A0095027A /* CofeModel.swift */; };
 		52DF95C32B7AB5EB0095027A /* OptionsControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95C22B7AB5EB0095027A /* OptionsControllerView.swift */; };
-		52DF95C52B7ACB300095027A /* Extension_UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95C42B7ACB300095027A /* Extension_UILabel.swift */; };
+		52DF95C52B7ACB300095027A /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95C42B7ACB300095027A /* UILabel+Extension.swift */; };
 		52DF95C92B7ADC190095027A /* CancelButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95C82B7ADC190095027A /* CancelButton.swift */; };
 		52DF95CB2B7B89A30095027A /* OrderControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95CA2B7B89A30095027A /* OrderControllerView.swift */; };
 		52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F062B71A3EB00B764D2 /* AppDelegate.swift */; };
@@ -37,7 +37,7 @@
 		52DF95BD2B7A87B00095027A /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
 		52DF95BF2B7AB39A0095027A /* CofeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CofeModel.swift; sourceTree = "<group>"; };
 		52DF95C22B7AB5EB0095027A /* OptionsControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsControllerView.swift; sourceTree = "<group>"; };
-		52DF95C42B7ACB300095027A /* Extension_UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension_UILabel.swift; sourceTree = "<group>"; };
+		52DF95C42B7ACB300095027A /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		52DF95C82B7ADC190095027A /* CancelButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelButton.swift; sourceTree = "<group>"; };
 		52DF95CA2B7B89A30095027A /* OrderControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderControllerView.swift; sourceTree = "<group>"; };
 		52E87F032B71A3EB00B764D2 /* Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +91,7 @@
 		52DF95F22B7C0A0A0095027A /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				52DF95C42B7ACB300095027A /* Extension_UILabel.swift */,
+				52DF95C42B7ACB300095027A /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -279,7 +279,7 @@
 				52E87F902B7A4C0B00B764D2 /* OptionsViewController.swift in Sources */,
 				52DF95BA2B7A679C0095027A /* DetailControllerView.swift in Sources */,
 				52E87F942B7A4C6300B764D2 /* SmsViewController.swift in Sources */,
-				52DF95C52B7ACB300095027A /* Extension_UILabel.swift in Sources */,
+				52DF95C52B7ACB300095027A /* UILabel+Extension.swift in Sources */,
 				52E87F8E2B7A4BD400B764D2 /* DetailViewController.swift in Sources */,
 				52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */,
 				52DF95C32B7AB5EB0095027A /* OptionsControllerView.swift in Sources */,

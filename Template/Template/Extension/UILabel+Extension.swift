@@ -1,10 +1,17 @@
-// Extension_UILabel.swift
+// UILabel+Extension.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// расширение лейла с окрашиванием части строки
 extension UILabel {
+    // MARK: - Constants
+    enum Constants {
+        static let price50 = "+ 50 руб"
+        static let price70 = "+ 70 руб"
+        static let price20 = "+ 20 руб"
+    }
+
     convenience init(
         text: String,
         color: UIColor,
@@ -22,9 +29,9 @@ extension UILabel {
 
         /// задаю цвет отдельным частям текста в лейбле
         let attributedString = NSMutableAttributedString(string: text)
-        let range = (text as NSString).range(of: "+ 50 руб")
-        let range2 = (text as NSString).range(of: "+ 70 руб")
-        let range3 = (text as NSString).range(of: "+ 20 руб")
+        let range = (text as NSString).range(of: Constants.price50)
+        let range2 = (text as NSString).range(of: Constants.price70)
+        let range3 = (text as NSString).range(of: Constants.price20)
         attributedString.addAttribute(
             NSAttributedString.Key.foregroundColor,
             value: UIColor.systemGreen,

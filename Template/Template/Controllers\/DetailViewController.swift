@@ -20,17 +20,29 @@ protocol PushDelegate: AnyObject {
 
 // экран с выбором деталей заказа
 final class DetailViewController: UIViewController {
+    // MARK: - Constants
+
+    enum Constants {
+        static let coffeImageNames = ["кофе", "капучино", "латте"]
+        static let blackRoastImageName = "темнаяОбж"
+        static let whiteRoastImageName = "светлаяОбж"
+        static let blackRoastText = "Темная\nобжарка"
+        static let coffeNames = ["Американо", "Капучино", "Латте"]
+        static let promocode = "vkusCoffe24"
+        static let rubel = "Руб"
+    }
+
     // MARK: - Public Properties
 
     /// название картинки в кнопке обжарки
-    var roastImageName = "темнаяОбж" {
+    var roastImageName = Constants.blackRoastImageName {
         didSet {
             mainView.buttonRoastView.imageView.image = UIImage(named: roastImageName)
         }
     }
 
     /// текст в кнопке обжарки
-    var roastText = "Темная\nобжарка" {
+    var roastText = Constants.blackRoastText {
         didSet {
             mainView.buttonRoastView.textLabel.text = roastText
         }
@@ -38,20 +50,17 @@ final class DetailViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    /// массив названий картинок с коффе
-    private let coffeImages = ["кофе", "капучино", "латте"]
-
     /// экземплар главной вью
     private let mainView = DetailControllerView()
     /// модель с данными
     private var model = CoffeModel() {
         didSet {
-            mainView.priceLabel.text = "Цѣна - \(model.totalPrice) руб"
+            mainView.priceLabel.text = "Цѣна - \(model.totalPrice) \(Constants.rubel)"
         }
     }
 
     /// название кофе
-    private var coffeName = "Американо"
+    private var coffeName = Constants.coffeNames[0]
 
     /// кнопка share для нав бара
     private lazy var shareBarButton: UIBarButtonItem = {
@@ -123,7 +132,7 @@ final class DetailViewController: UIViewController {
         roastGesture.addTarget(self, action: #selector(goToCoffeRoastVC))
         let ingridientGesture = UITapGestureRecognizer()
         ingridientGesture.addTarget(self, action: #selector(goToOptionsVC))
-        mainView.ingridientsRoastView.addGestureRecognizer(ingridientGesture)
+        mainView.ingridientsView.addGestureRecognizer(ingridientGesture)
         mainView.buttonRoastView.addGestureRecognizer(roastGesture)
     }
 
@@ -131,10 +140,10 @@ final class DetailViewController: UIViewController {
     @objc private func goToCoffeRoastVC() {
         let secondVC = CoffeRoastViewController()
         switch roastImageName {
-        case "темнаяОбж":
+        case Constants.blackRoastImageName:
             secondVC.mainView.blackButtonRoastView.layer.borderWidth = 1
             secondVC.mainView.blackButtonRoastView.layer.borderColor = UIColor.gray.cgColor
-        case "светлаяОбж":
+        case Constants.whiteRoastImageName:
             secondVC.mainView.whiteButtonRoastView.layer.borderWidth = 1
             secondVC.mainView.whiteButtonRoastView.layer.borderColor = UIColor.gray.cgColor
         default: break
@@ -152,13 +161,11 @@ final class DetailViewController: UIViewController {
 
     /// метод меняет картинку кофе в зависимости от выбранного названия в сегментКонтроллере
     @objc private func segmentedImage() {
-        let names = [
-            "Американо",
-            "Капучино",
-            "Латте"
-        ]
-        mainView.titleImageView.image = UIImage(named: coffeImages[mainView.coffeSegmentControl.selectedSegmentIndex])
-        coffeName = names[mainView.coffeSegmentControl.selectedSegmentIndex]
+        mainView.titleImageView.image = UIImage(
+            named:
+            Constants.coffeImageNames[mainView.coffeSegmentControl.selectedSegmentIndex]
+        )
+        coffeName = Constants.coffeNames[mainView.coffeSegmentControl.selectedSegmentIndex]
     }
 
     /// переход на экран с чеком
@@ -178,7 +185,7 @@ final class DetailViewController: UIViewController {
     /// метод вызывает активити контроллер
     @objc private func share() {
         let activity = UIActivityViewController(
-            activityItems: ["vkusCoffe24"],
+            activityItems: [Constants.promocode],
             applicationActivities: nil
         )
         present(activity, animated: true)
@@ -198,9 +205,9 @@ extension DetailViewController: CoffeModelDelegate {
     func transfer(model: CoffeModel) {
         self.model = model
         if self.model.optionsMap.isEmpty {
-            mainView.ingridientsRoastView.imageView.image = UIImage(named: "pluss")
+            mainView.ingridientsView.imageView.image = UIImage(named: "pluss")
         } else {
-            mainView.ingridientsRoastView.imageView.image = UIImage(named: "окк")
+            mainView.ingridientsView.imageView.image = UIImage(named: "окк")
         }
     }
 }

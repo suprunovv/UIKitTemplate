@@ -5,6 +5,21 @@ import UIKit
 
 /// экран с выбором дополнительных опций
 final class OptionsViewController: UIViewController {
+    // MARK: - Constants
+
+    enum Constants {
+        static let milk = "Молоко"
+        static let milkPrice = 50
+        static let syrop = "Сироп"
+        static let syropPrice = 20
+        static let soyMilk = "Молоко соевое"
+        static let soyMilkPrice = 50
+        static let almondMilk = "Молоко миндальное"
+        static let almondMilkPrice = 70
+        static let espresso = "Эспрессо"
+        static let espressoPrice = 50
+    }
+
     // MARK: - Private Properties
 
     let mainView = OptionsControllerView()
@@ -65,33 +80,48 @@ final class OptionsViewController: UIViewController {
         switch sender {
         case mainView.milkSwitch:
             if sender.isOn {
-                coffeModel.optionsMap.updateValue(50, forKey: "Молоко")
+                coffeModel.optionsMap.updateValue(
+                    Constants.milkPrice,
+                    forKey: Constants.milk
+                )
             } else {
-                coffeModel.optionsMap.removeValue(forKey: "Молоко")
+                coffeModel.optionsMap.removeValue(forKey: Constants.milk)
             }
         case mainView.syropSwitch:
             if sender.isOn {
-                coffeModel.optionsMap.updateValue(20, forKey: "Сироп")
+                coffeModel.optionsMap.updateValue(
+                    Constants.syropPrice,
+                    forKey: Constants.syrop
+                )
             } else {
-                coffeModel.optionsMap.removeValue(forKey: "Сироп")
+                coffeModel.optionsMap.removeValue(forKey: Constants.syrop)
             }
         case mainView.soyMilkSwitch:
             if sender.isOn {
-                coffeModel.optionsMap.updateValue(50, forKey: "Молоко соевое")
+                coffeModel.optionsMap.updateValue(
+                    Constants.soyMilkPrice,
+                    forKey: Constants.soyMilk
+                )
             } else {
-                coffeModel.optionsMap.removeValue(forKey: "Молоко соевое")
+                coffeModel.optionsMap.removeValue(forKey: Constants.soyMilk)
             }
         case mainView.almondMilkSwitch:
             if sender.isOn {
-                coffeModel.optionsMap.updateValue(70, forKey: "Молоко миндальное")
+                coffeModel.optionsMap.updateValue(
+                    Constants.almondMilkPrice,
+                    forKey: Constants.almondMilk
+                )
             } else {
-                coffeModel.optionsMap.removeValue(forKey: "Молоко миндальное")
+                coffeModel.optionsMap.removeValue(forKey: Constants.almondMilk)
             }
         case mainView.espressoSwitch:
             if sender.isOn {
-                coffeModel.optionsMap.updateValue(50, forKey: "Эспрессо")
+                coffeModel.optionsMap.updateValue(
+                    Constants.espressoPrice,
+                    forKey: Constants.espresso
+                )
             } else {
-                coffeModel.optionsMap.removeValue(forKey: "Эспрессо")
+                coffeModel.optionsMap.removeValue(forKey: Constants.espresso)
             }
         default: break
         }

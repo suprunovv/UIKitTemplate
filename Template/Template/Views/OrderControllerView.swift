@@ -5,11 +5,23 @@ import UIKit
 
 /// Вью экрана с ордером
 final class OrderControllerView: UIView {
+    enum Constants {
+        static let priceLabelText = "Цѣна - 200 руб"
+        static let coffeNameLabelText = "Американо"
+        static let coffePriceLabelText = "100 руб"
+        static let payButtonText = "Оплатить"
+        static let payButtonColor = UIColor(named: "buttonColor")
+        static let titleLabelText = "Вашъ Заказъ"
+        static let leftImage = UIImage(named: "leftImage")
+        static let bottomImage = UIImage(named: "bottomImage")
+        static let rightImage = UIImage(named: "rightImage")
+    }
+
     // MARK: - Visual Components
 
     /// лейбл общая цена
     var priceLabel = UILabel(
-        text: "Цѣна - 200 руб",
+        text: Constants.priceLabelText,
         color: .black,
         aligment: .center,
         font: .boldSystemFont(ofSize: 18),
@@ -24,7 +36,7 @@ final class OrderControllerView: UIView {
 
     /// лейбл с названием коффе
     var coffeNameLabel = UILabel(
-        text: "Американо",
+        text: Constants.coffeNameLabelText,
         color: .black,
         aligment: .left,
         font: .boldSystemFont(ofSize: 16),
@@ -39,7 +51,7 @@ final class OrderControllerView: UIView {
 
     /// лейбл с ценой кофе
     var coffePriceLabel = UILabel(
-        text: "100 руб",
+        text: Constants.coffePriceLabelText,
         color: .black,
         aligment: .right,
         font: .boldSystemFont(ofSize: 16),
@@ -61,10 +73,10 @@ final class OrderControllerView: UIView {
             width: 345,
             height: 53
         )
-        button.setTitle("Оплатить", for: .normal)
+        button.setTitle(Constants.payButtonText, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.tintColor = .white
-        button.backgroundColor = UIColor(named: "buttonColor")
+        button.backgroundColor = Constants.payButtonColor
         button.layer.cornerRadius = 12
         return button
     }()
@@ -81,7 +93,7 @@ final class OrderControllerView: UIView {
 
     /// заглавный лейбл
     private let titleLabel = UILabel(
-        text: "Вашъ Заказъ",
+        text: Constants.titleLabelText,
         color: .black,
         aligment: .center,
         font: .boldSystemFont(ofSize: 18),
@@ -100,7 +112,7 @@ final class OrderControllerView: UIView {
             width: 100,
             height: 72.71
         ))
-        imageView.image = UIImage(named: "leftImage")
+        imageView.image = Constants.leftImage
         return imageView
     }()
 
@@ -111,7 +123,7 @@ final class OrderControllerView: UIView {
             width: 100,
             height: 40
         ))
-        imageView.image = UIImage(named: "bottomImage")
+        imageView.image = Constants.bottomImage
         return imageView
     }()
 
@@ -122,9 +134,11 @@ final class OrderControllerView: UIView {
             width: 100,
             height: 72.71
         ))
-        imageView.image = UIImage(named: "rightImage")
+        imageView.image = Constants.rightImage
         return imageView
     }()
+
+    // MARK: - Initializators
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -134,6 +148,8 @@ final class OrderControllerView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+
+    // MARK: - Private methods
 
     /// метод добавляет вью на главный влю
     private func setViews() {
