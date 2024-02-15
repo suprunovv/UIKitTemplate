@@ -96,6 +96,7 @@ class ShoeViewController: UIViewController {
     private let basketBrownShoeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: Constants.basketImage), for: .normal)
+        button.addTarget(nil, action: #selector(basketBrownShoeButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -103,6 +104,7 @@ class ShoeViewController: UIViewController {
     private let basketBlackShoeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: Constants.basketImage), for: .normal)
+        button.addTarget(nil, action: #selector(basketBlackShoeButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -110,6 +112,7 @@ class ShoeViewController: UIViewController {
     private let basketYellowShoeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: Constants.basketImage), for: .normal)
+        button.addTarget(nil, action: #selector(basketYellowShoeButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -117,6 +120,7 @@ class ShoeViewController: UIViewController {
     private let basketPinkShoeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: Constants.basketImage), for: .normal)
+        button.addTarget(nil, action: #selector(basketPinkShoeButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -124,6 +128,7 @@ class ShoeViewController: UIViewController {
     private let basketWhiteShoeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: Constants.basketImage), for: .normal)
+        button.addTarget(nil, action: #selector(basketWhiteShoeButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -132,7 +137,34 @@ class ShoeViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private var shoe: Shoes?
+    private var brownShoe: Shoes = .init(
+        name: "Туфли женские",
+
+        imageName: Constants.brownShoe,
+        price: 2250,
+        size: .eu35
+    )
+    private var whiteShoe: Shoes = .init(name: "Кеды женские", imageName: Constants.whiteShoe, price: 5555, size: .eu35)
+    private var blackShoe: Shoes = .init(
+        name: "Ботинки женские",
+
+        imageName: Constants.blackShoe,
+        price: 4250,
+        size: .eu35
+    )
+    private var pinkShoe: Shoes = .init(
+        name: "Кроссовки женские спортивные",
+        imageName: Constants.pinkShoe,
+        price: 5750,
+        size: .eu35
+    )
+    private var yellowShoe: Shoes = .init(
+        name: "Туфли женские",
+
+        imageName: Constants.yellowShoe,
+        price: 3500,
+        size: .eu35
+    )
 
     // MARK: - Initializers
 
@@ -251,5 +283,41 @@ class ShoeViewController: UIViewController {
         navigationItem.title = "Обувь"
 
         configureShoeCells()
+    }
+
+    @objc private func basketWhiteShoeButtonTapped() {
+//        basketWhiteShoeButton.tintColor = UIColor(
+//            red: 225.0 / 255.0,
+//            green: 24.0 / 255.0,
+//            blue: 131.0 / 255.0,
+//            alpha: 1
+//        )
+        let sizeViewController = SizeViewController()
+        sizeViewController.shoe = whiteShoe
+        present(sizeViewController, animated: true, completion: nil)
+    }
+
+    @objc private func basketBlackShoeButtonTapped() {
+        let sizeViewController = SizeViewController()
+        sizeViewController.shoe = blackShoe
+        present(sizeViewController, animated: true, completion: nil)
+    }
+
+    @objc private func basketYellowShoeButtonTapped() {
+        let sizeViewController = SizeViewController()
+        sizeViewController.shoe = yellowShoe
+        present(sizeViewController, animated: true, completion: nil)
+    }
+
+    @objc private func basketPinkShoeButtonTapped() {
+        let sizeViewController = SizeViewController()
+        sizeViewController.shoe = pinkShoe
+        present(sizeViewController, animated: true, completion: nil)
+    }
+
+    @objc private func basketBrownShoeButtonTapped() {
+        let sizeViewController = SizeViewController()
+        sizeViewController.shoe = brownShoe
+        present(sizeViewController, animated: true, completion: nil)
     }
 }
