@@ -65,13 +65,6 @@ class CatalogViewController: UIViewController {
         return view
     }()
 
-    private let womansView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .white
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
     private let newsImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: Constants.manNewsImage)
@@ -82,20 +75,6 @@ class CatalogViewController: UIViewController {
     private let salesImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: Constants.manSalesImage)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    private let womanNewsImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: Constants.womanNewsImage)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    private let womanSalesImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: Constants.womanSalesImage)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -131,6 +110,15 @@ class CatalogViewController: UIViewController {
         return view
     }()
 
+    private let shoesButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.isEnabled = false
+        button.addTarget(nil, action: #selector(shoesButtonTapped), for: .touchUpInside)
+        button.layer.cornerRadius = 12
+        return button
+    }()
+
     private let shoesLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -142,13 +130,6 @@ class CatalogViewController: UIViewController {
     private let shoesImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: Constants.shoesManImage)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    private let womansShoesImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: Constants.shoesWomanImage)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -172,13 +153,6 @@ class CatalogViewController: UIViewController {
     private let bagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: Constants.bagManImage)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    private let womansBagImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: Constants.bagWomanImage)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -208,16 +182,19 @@ class CatalogViewController: UIViewController {
             salesImageView.image = UIImage(named: Constants.womanSalesImage)
             shoesImageView.image = UIImage(named: Constants.shoesWomanImage)
             bagImageView.image = UIImage(named: Constants.bagWomanImage)
+            shoesButton.isEnabled = true
         } else if sender.selectedSegmentIndex == 1 {
             newsImageView.image = UIImage(named: Constants.manNewsImage)
             salesImageView.image = UIImage(named: Constants.manSalesImage)
             shoesImageView.image = UIImage(named: Constants.shoesManImage)
             bagImageView.image = UIImage(named: Constants.bagManImage)
+            shoesButton.isEnabled = false
         } else if sender.selectedSegmentIndex == 2 {
             newsImageView.image = UIImage(named: Constants.childNewsImage)
             salesImageView.image = UIImage(named: Constants.childSalesImage)
             shoesImageView.image = UIImage(named: Constants.shoesChildImage)
             bagImageView.image = UIImage(named: Constants.bagChildImage)
+            shoesButton.isEnabled = false
         }
     }
 
@@ -263,6 +240,12 @@ class CatalogViewController: UIViewController {
         shoesView.leftAnchor.constraint(equalTo: internalView.leftAnchor).isActive = true
         shoesView.widthAnchor.constraint(equalToConstant: 335).isActive = true
         shoesView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+
+        internalView.addSubview(shoesButton)
+        shoesButton.topAnchor.constraint(equalTo: brandView.bottomAnchor, constant: 20).isActive = true
+        shoesButton.leftAnchor.constraint(equalTo: internalView.leftAnchor).isActive = true
+        shoesButton.widthAnchor.constraint(equalToConstant: 335).isActive = true
+        shoesButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
 
         shoesView.addSubview(shoesLabel)
         shoesLabel.topAnchor.constraint(equalTo: shoesView.topAnchor, constant: 31).isActive = true
@@ -328,5 +311,9 @@ class CatalogViewController: UIViewController {
         configureManView()
     }
 
-    @objc private func segmentedControlValueChanged() {}
+    @objc private func shoesButtonTapped() {
+        let shoeViewController = ShoeViewController()
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.pushViewController(shoeViewController, animated: true)
+    }
 }
