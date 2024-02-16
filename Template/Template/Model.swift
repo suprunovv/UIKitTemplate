@@ -36,7 +36,20 @@ final class Shoes: Identifiable {
 /// сингтон с массивами обуви
 final class LikeListShoes {
     static let shared = LikeListShoes()
-    private var likeShoes: [Shoes] = []
+    private var likeShoes: [Shoes] = [
+        Shoes(
+            name: "Туфли женские",
+            imageName: "bag",
+            price: 6400,
+            size: .eu36
+        ),
+        Shoes(
+            name: "Ботинки женские",
+            imageName: "bag",
+            price: 3200,
+            size: .eu38
+        )
+    ]
     private init() {}
 
     func addLikeShoes(shoes: Shoes) {
@@ -45,8 +58,12 @@ final class LikeListShoes {
     }
 
     func deleteLikeShoes(shoes: Shoes) {
-        for (index, shoes) in likeShoes.enumerated() where shoes.name == shoes.name {
-            likeShoes.remove(at: index)
+        for (index, shoes) in likeShoes.enumerated() {
+            if shoes.name == shoes.name {
+                likeShoes.remove(at: index)
+            } else {
+                continue
+            }
         }
     }
 
