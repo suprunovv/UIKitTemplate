@@ -3,10 +3,8 @@
 
 import UIKit
 
-/// контроллер с выбором размера
-class SizeViewController: UIViewController {
-    // MARK: - Types
-
+/// Экран выбора размера
+final class SizeViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
@@ -25,8 +23,6 @@ class SizeViewController: UIViewController {
         static let verdana14 = UIFont(name: "Verdana", size: 14)
         static let verdana12 = UIFont(name: "Verdana", size: 12)
     }
-
-    // MARK: - IBOutlets
 
     // MARK: - Visual Components
 
@@ -143,13 +139,9 @@ class SizeViewController: UIViewController {
         return view
     }()
 
-    // MARK: - Public Properties
-
     // MARK: - Private Properties
 
     var shoe: Shoes?
-
-    // MARK: - Initializers
 
     // MARK: - Life Cycle
 
@@ -157,10 +149,6 @@ class SizeViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
     }
-
-    // MARK: - Public Methods
-
-    // MARK: - IBAction
 
     // MARK: - Private Methods
 

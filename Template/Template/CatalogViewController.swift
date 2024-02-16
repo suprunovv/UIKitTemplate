@@ -3,10 +3,8 @@
 
 import UIKit
 
-/// каталог вьюКонтроллер
-class CatalogViewController: UIViewController {
-    // MARK: - Types
-
+/// Экран каталога
+final class CatalogViewController: UIViewController {
     // MARK: - Constants
 
     enum Constants {
@@ -27,6 +25,8 @@ class CatalogViewController: UIViewController {
         static let brendsLabelText = "Бренды"
         static let shoesLabelText = "Обувь"
         static let bagLabelText = "Сумки"
+        static let newsLabelText = "Новинки"
+        static let salesLabelText = "Распродажа"
         static let verdanaBold18 = UIFont(name: "Verdana-Bold", size: 18)
         static let verdanaBold16 = UIFont(name: "Verdana-Bold", size: 16)
         static let verdanaBold26 = UIFont(name: "Verdana-Bold", size: 26)
@@ -36,8 +36,6 @@ class CatalogViewController: UIViewController {
         static let verdana14 = UIFont(name: "Verdana", size: 14)
         static let verdana12 = UIFont(name: "Verdana", size: 12)
     }
-
-    // MARK: - IBOutlets
 
     // MARK: - Visual Components
 
@@ -69,12 +67,20 @@ class CatalogViewController: UIViewController {
         let imageView = UIImageView()
         imageView.image = UIImage(named: Constants.manNewsImage)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.shadowColor = UIColor.gray.cgColor
+        imageView.layer.shadowOpacity = 1
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        imageView.layer.shadowRadius = 4
         return imageView
     }()
 
     private let salesImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: Constants.manSalesImage)
+        imageView.layer.shadowColor = UIColor.gray.cgColor
+        imageView.layer.shadowOpacity = 1
+        imageView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        imageView.layer.shadowRadius = 4
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -92,6 +98,26 @@ class CatalogViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = Constants.brendsLabelText
         label.font = Constants.verdanaBold14
+        return label
+    }()
+
+    private let newsLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = Constants.newsLabelText
+        label.font = Constants.verdanaBold14
+        label.textAlignment = .center
+        label.textColor = .white
+        return label
+    }()
+
+    private let salesLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = Constants.salesLabelText
+        label.font = Constants.verdanaBold14
+        label.textAlignment = .center
+        label.textColor = .white
         return label
     }()
 
@@ -157,12 +183,6 @@ class CatalogViewController: UIViewController {
         return imageView
     }()
 
-    // MARK: - Public Properties
-
-    // MARK: - Private Properties
-
-    // MARK: - Initializers
-
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -170,13 +190,9 @@ class CatalogViewController: UIViewController {
         configureUI()
     }
 
-    // MARK: - Public Methods
-
-    // MARK: - IBAction
-
     // MARK: - Private Methods
 
-    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+    @objc private func segmentedControlValueChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             newsImageView.image = UIImage(named: Constants.womanNewsImage)
             salesImageView.image = UIImage(named: Constants.womanSalesImage)
@@ -206,7 +222,7 @@ class CatalogViewController: UIViewController {
         catalogLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
-    fileprivate func configurePersonsSegmentedControl() {
+    private func configurePersonsSegmentedControl() {
         view.addSubview(personsSegmentedControl)
         personsSegmentedControl.topAnchor.constraint(equalTo: catalogLabel.bottomAnchor, constant: 25).isActive = true
         personsSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -293,11 +309,23 @@ class CatalogViewController: UIViewController {
         newsImageView.widthAnchor.constraint(equalToConstant: 160).isActive = true
         newsImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
 
+        internalView.addSubview(newsLabel)
+        newsLabel.topAnchor.constraint(equalTo: internalView.topAnchor).isActive = true
+        newsLabel.leftAnchor.constraint(equalTo: internalView.leftAnchor).isActive = true
+        newsLabel.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        newsLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
+
         internalView.addSubview(salesImageView)
         salesImageView.topAnchor.constraint(equalTo: newsImageView.topAnchor).isActive = true
         salesImageView.rightAnchor.constraint(equalTo: internalView.rightAnchor).isActive = true
         salesImageView.widthAnchor.constraint(equalToConstant: 160).isActive = true
         salesImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+
+        internalView.addSubview(salesLabel)
+        salesLabel.topAnchor.constraint(equalTo: internalView.topAnchor, constant: 103).isActive = true
+        salesLabel.rightAnchor.constraint(equalTo: internalView.rightAnchor).isActive = true
+        salesLabel.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        salesLabel.heightAnchor.constraint(equalToConstant: 17).isActive = true
 
         configureBrandView()
         configureShoesView()
