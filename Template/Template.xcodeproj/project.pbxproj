@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44D770692B7E9D2C00C7F080 /* ShoeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D770682B7E9D2C00C7F080 /* ShoeViewController.swift */; };
 		52DF95F42B7D3B600095027A /* ShopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95F32B7D3B600095027A /* ShopTabBarController.swift */; };
 		52DF95F62B7D3C470095027A /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95F52B7D3C470095027A /* CatalogViewController.swift */; };
 		52DF95F82B7D3C710095027A /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95F72B7D3C710095027A /* ShoppingCartViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44D770682B7E9D2C00C7F080 /* ShoeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoeViewController.swift; sourceTree = "<group>"; };
 		52DF95F32B7D3B600095027A /* ShopTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopTabBarController.swift; sourceTree = "<group>"; };
 		52DF95F52B7D3C470095027A /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		52DF95F72B7D3C710095027A /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				52DF95F32B7D3B600095027A /* ShopTabBarController.swift */,
 				52DF95FB2B7D4EB40095027A /* Model.swift */,
 				52DF95FD2B7D55BB0095027A /* SizeViewController.swift */,
+				44D770682B7E9D2C00C7F080 /* ShoeViewController.swift */,
 				52DF95F52B7D3C470095027A /* CatalogViewController.swift */,
 				52DF95FF2B7D55F70095027A /* PersonDataViewController.swift */,
 				52DF95F72B7D3C710095027A /* ShoppingCartViewController.swift */,
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52DF95FC2B7D4EB40095027A /* Model.swift in Sources */,
+				44D770692B7E9D2C00C7F080 /* ShoeViewController.swift in Sources */,
 				52DF95F62B7D3C470095027A /* CatalogViewController.swift in Sources */,
 				52DF95F82B7D3C710095027A /* ShoppingCartViewController.swift in Sources */,
 				52DF96002B7D55F70095027A /* PersonDataViewController.swift in Sources */,

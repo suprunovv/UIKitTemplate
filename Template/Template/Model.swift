@@ -45,10 +45,8 @@ class LikeListShoes {
     }
 
     func deleteLikeShoes(shoes: Shoes) {
-        for (index, shoes) in likeShoes.enumerated() {
-            if shoes.name == shoes.name {
-                likeShoes.remove(at: index)
-            }
+        for (index, shoes) in likeShoes.enumerated() where shoes.name == shoes.name {
+            likeShoes.remove(at: index)
         }
     }
 
