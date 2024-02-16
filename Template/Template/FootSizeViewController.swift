@@ -91,6 +91,7 @@ final class FootSizeViewController: UIViewController {
         dismiss(animated: true)
     }
 }
+
 /// подписался на делегат и датасорс пикера
 extension FootSizeViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

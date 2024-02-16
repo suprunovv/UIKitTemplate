@@ -60,7 +60,7 @@ final class PersonDataViewController: UIViewController {
     }
 
     // MARK: - Private Methods
-    
+
     private func setupUI() {
         setTextFileds()
         setView()
