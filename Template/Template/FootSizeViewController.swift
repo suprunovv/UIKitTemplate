@@ -3,28 +3,6 @@
 
 import UIKit
 
-// MARK: - Types
-
-// MARK: - Constants
-
-// MARK: - IBOutlets
-
-// MARK: - Visual Components
-
-// MARK: - Public Properties
-
-// MARK: - Private Properties
-
-// MARK: - Initializers
-
-// MARK: - Life Cycle
-
-// MARK: - Public Methods
-
-// MARK: - IBAction
-
-// MARK: - Private Methods
-
 /// контроллер с выбором размера
 final class FootSizeViewController: UIViewController {
     // MARK: - Constants
@@ -113,7 +91,7 @@ final class FootSizeViewController: UIViewController {
         dismiss(animated: true)
     }
 }
-
+/// подписался на делегат и датасорс пикера
 extension FootSizeViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         "\(Constnts.sizes[row])"

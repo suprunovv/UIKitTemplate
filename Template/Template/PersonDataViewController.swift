@@ -24,6 +24,7 @@ final class PersonDataViewController: UIViewController {
         static let maxNumberCount = 18
         static let saveButtonColor = UIColor(red: 225.0 / 255.0, green: 24.0 / 255.0, blue: 131.0 / 255.0, alpha: 1)
         static let backImage = UIImage(systemName: "chevron.left")
+        static let titleText = "Мои данные"
     }
 
     // MARK: - Visual Components
@@ -55,13 +56,17 @@ final class PersonDataViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+
+    // MARK: - Private Methods
+    
+    private func setupUI() {
         setTextFileds()
         setView()
         setSaveButton()
         setBackButtonItem()
     }
-
-    // MARK: - Private Methods
 
     private func setBackButtonItem() {
         let backButton = UIBarButtonItem(
@@ -76,7 +81,7 @@ final class PersonDataViewController: UIViewController {
 
     private func setView() {
         view.backgroundColor = .white
-        title = "Мои данные"
+        title = Constants.titleText
     }
 
     private func regularExpression() -> NSRegularExpression {

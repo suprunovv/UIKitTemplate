@@ -21,13 +21,15 @@ final class PlasticCardView: UIView {
         static let cardLogoImage = UIImage(named: "logoCard")
         static let qrCodeImage = UIImage(systemName: "qrcode")
         static let informationImage = UIImage(named: "information")
+        static let numberCard = "1000 0001 0102"
+        static let sellText = "15%"
     }
 
     // MARK: - Visual Components
 
     private let cardNumberLabel: UILabel = {
         let label = UILabel()
-        label.text = "1000 0001 0102"
+        label.text = Constants.numberCard
         label.font = Fonts.verdana14
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +38,7 @@ final class PlasticCardView: UIView {
 
     private let discountLabel: UILabel = {
         let label = UILabel()
-        label.text = "15%"
+        label.text = Constants.sellText
         label.font = Fonts.verdanaBold16
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false

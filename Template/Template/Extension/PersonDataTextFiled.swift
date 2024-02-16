@@ -4,7 +4,7 @@
 import UIKit
 
 /// Текстфилд для экрана с данными пользователя
-class PersonDataTextFiled: UITextField {
+final class PersonDataTextFiled: UITextField {
     init(placeholder: String) {
         super.init(frame: .zero)
         self.placeholder = placeholder
