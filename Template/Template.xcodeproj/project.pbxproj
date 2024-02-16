@@ -12,8 +12,14 @@
 		52DF95F82B7D3C710095027A /* ShoppingCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95F72B7D3C710095027A /* ShoppingCartViewController.swift */; };
 		52DF95FA2B7D3C870095027A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95F92B7D3C870095027A /* ProfileViewController.swift */; };
 		52DF95FC2B7D4EB40095027A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95FB2B7D4EB40095027A /* Model.swift */; };
-		52DF95FE2B7D55BB0095027A /* SizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95FD2B7D55BB0095027A /* SizeViewController.swift */; };
+		52DF95FE2B7D55BB0095027A /* FootSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95FD2B7D55BB0095027A /* FootSizeViewController.swift */; };
 		52DF96002B7D55F70095027A /* PersonDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF95FF2B7D55F70095027A /* PersonDataViewController.swift */; };
+		52DF96022B7D629E0095027A /* ProfileControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF96012B7D629E0095027A /* ProfileControllerView.swift */; };
+		52DF96042B7D653C0095027A /* PlasticCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF96032B7D653C0095027A /* PlasticCardView.swift */; };
+		52DF96062B7D7BA70095027A /* UILabel+Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF96052B7D7BA70095027A /* UILabel+Extension .swift */; };
+		52DF96082B7D98CA0095027A /* LabelButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF96072B7D98CA0095027A /* LabelButtonView.swift */; };
+		52DF960E2B7E25020095027A /* PersonDataTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF960D2B7E25020095027A /* PersonDataTextFiled.swift */; };
+		52DF96102B7E7D920095027A /* ShoppingCartCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52DF960F2B7E7D920095027A /* ShoppingCartCellView.swift */; };
 		52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F062B71A3EB00B764D2 /* AppDelegate.swift */; };
 		52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */; };
 		52E87F102B71A3EE00B764D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */; };
@@ -26,8 +32,14 @@
 		52DF95F72B7D3C710095027A /* ShoppingCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewController.swift; sourceTree = "<group>"; };
 		52DF95F92B7D3C870095027A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		52DF95FB2B7D4EB40095027A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		52DF95FD2B7D55BB0095027A /* SizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeViewController.swift; sourceTree = "<group>"; };
+		52DF95FD2B7D55BB0095027A /* FootSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootSizeViewController.swift; sourceTree = "<group>"; };
 		52DF95FF2B7D55F70095027A /* PersonDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataViewController.swift; sourceTree = "<group>"; };
+		52DF96012B7D629E0095027A /* ProfileControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileControllerView.swift; sourceTree = "<group>"; };
+		52DF96032B7D653C0095027A /* PlasticCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlasticCardView.swift; sourceTree = "<group>"; };
+		52DF96052B7D7BA70095027A /* UILabel+Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension .swift"; sourceTree = "<group>"; };
+		52DF96072B7D98CA0095027A /* LabelButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelButtonView.swift; sourceTree = "<group>"; };
+		52DF960D2B7E25020095027A /* PersonDataTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDataTextFiled.swift; sourceTree = "<group>"; };
+		52DF960F2B7E7D920095027A /* ShoppingCartCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartCellView.swift; sourceTree = "<group>"; };
 		52E87F032B71A3EB00B764D2 /* Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E87F062B71A3EB00B764D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +59,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52DF96092B7E24090095027A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				52DF960F2B7E7D920095027A /* ShoppingCartCellView.swift */,
+				52DF96032B7D653C0095027A /* PlasticCardView.swift */,
+				52DF96072B7D98CA0095027A /* LabelButtonView.swift */,
+				52DF96012B7D629E0095027A /* ProfileControllerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		52DF960A2B7E24260095027A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				52DF96052B7D7BA70095027A /* UILabel+Extension .swift */,
+				52DF960D2B7E25020095027A /* PersonDataTextFiled.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		52E87EFA2B71A3EB00B764D2 = {
 			isa = PBXGroup;
 			children = (
@@ -70,11 +102,13 @@
 				52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */,
 				52DF95F32B7D3B600095027A /* ShopTabBarController.swift */,
 				52DF95FB2B7D4EB40095027A /* Model.swift */,
-				52DF95FD2B7D55BB0095027A /* SizeViewController.swift */,
+				52DF95FD2B7D55BB0095027A /* FootSizeViewController.swift */,
 				52DF95F52B7D3C470095027A /* CatalogViewController.swift */,
 				52DF95FF2B7D55F70095027A /* PersonDataViewController.swift */,
 				52DF95F72B7D3C710095027A /* ShoppingCartViewController.swift */,
 				52DF95F92B7D3C870095027A /* ProfileViewController.swift */,
+				52DF96092B7E24090095027A /* Views */,
+				52DF960A2B7E24260095027A /* Extension */,
 				52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */,
 				52E87F112B71A3EE00B764D2 /* LaunchScreen.storyboard */,
 				52E87F142B71A3EE00B764D2 /* Info.plist */,
@@ -198,12 +232,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				52DF95FC2B7D4EB40095027A /* Model.swift in Sources */,
+				52DF96042B7D653C0095027A /* PlasticCardView.swift in Sources */,
+				52DF96102B7E7D920095027A /* ShoppingCartCellView.swift in Sources */,
 				52DF95F62B7D3C470095027A /* CatalogViewController.swift in Sources */,
 				52DF95F82B7D3C710095027A /* ShoppingCartViewController.swift in Sources */,
+				52DF960E2B7E25020095027A /* PersonDataTextFiled.swift in Sources */,
 				52DF96002B7D55F70095027A /* PersonDataViewController.swift in Sources */,
+				52DF96022B7D629E0095027A /* ProfileControllerView.swift in Sources */,
+				52DF96082B7D98CA0095027A /* LabelButtonView.swift in Sources */,
 				52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */,
 				52DF95FA2B7D3C870095027A /* ProfileViewController.swift in Sources */,
-				52DF95FE2B7D55BB0095027A /* SizeViewController.swift in Sources */,
+				52DF95FE2B7D55BB0095027A /* FootSizeViewController.swift in Sources */,
+				52DF96062B7D7BA70095027A /* UILabel+Extension .swift in Sources */,
 				52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */,
 				52DF95F42B7D3B600095027A /* ShopTabBarController.swift in Sources */,
 			);

@@ -13,7 +13,7 @@ enum ShoesSize: String {
 }
 
 /// модель обуви
-class Shoes: Identifiable {
+final class Shoes: Identifiable {
     var name: String
     var imageName: String
     var price: Int
@@ -34,9 +34,22 @@ class Shoes: Identifiable {
 }
 
 /// сингтон с массивами обуви
-class LikeListShoes {
+final class LikeListShoes {
     static let shared = LikeListShoes()
-    private var likeShoes: [Shoes] = []
+    private var likeShoes: [Shoes] = [
+        Shoes(
+            name: "Туфли женские",
+            imageName: "bag",
+            price: 6400,
+            size: .eu36
+        ),
+        Shoes(
+            name: "Ботинки женские",
+            imageName: "bag",
+            price: 3200,
+            size: .eu38
+        )
+    ]
     private init() {}
 
     func addLikeShoes(shoes: Shoes) {
@@ -48,6 +61,8 @@ class LikeListShoes {
         for (index, shoes) in likeShoes.enumerated() {
             if shoes.name == shoes.name {
                 likeShoes.remove(at: index)
+            } else {
+                continue
             }
         }
     }
