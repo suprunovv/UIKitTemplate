@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "telega.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
