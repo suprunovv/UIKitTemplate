@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// ячейка с ячейками рекомендуемых профилей
+/// Ячейка рекомендуемых профилей
 final class RecommendationsTabelCell: UITableViewCell {
     // MARK: - Constants
 
@@ -18,7 +18,7 @@ final class RecommendationsTabelCell: UITableViewCell {
     private let recommendationLabel: UILabel = {
         let label = UILabel()
         label.text = Constants.recommendationText
-        label.font = Fonts.verdanaBold10
+        label.font = UIFont.verdanaBold10
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -34,7 +34,7 @@ final class RecommendationsTabelCell: UITableViewCell {
     private let moreButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle(Constants.moreButtonText, for: .normal)
-        button.titleLabel?.font = Fonts.verdanaBold10
+        button.titleLabel?.font = UIFont.verdanaBold10
         button.contentHorizontalAlignment = .right
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -47,7 +47,10 @@ final class RecommendationsTabelCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = Constants.backgroundColor
         contentView.heightAnchor.constraint(equalToConstant: 270).isActive = true
-        setConstraints()
+        addSubviews()
+        setMainScrollViewConstraints()
+        setLabelConstraints()
+        setMoreButtonConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -58,7 +61,6 @@ final class RecommendationsTabelCell: UITableViewCell {
 
     func setRecommendation(profiles: [RecommendationProfileView]) {
         guard !profiles.isEmpty else { return }
-//        mainScrollView.contentSize = profiles[0].getSize()
         var startLeading: CGFloat = 17
         for profile in profiles {
             mainScrollView.addSubview(profile)
@@ -74,18 +76,29 @@ final class RecommendationsTabelCell: UITableViewCell {
         mainScrollView.contentSize.width = startLeading
     }
 
-    private func setConstraints() {
+    // MARK: - Private methods
+
+    private func addSubviews() {
         contentView.addSubview(mainScrollView)
+        addSubview(recommendationLabel)
+        addSubview(moreButton)
+    }
+
+    private func setMainScrollViewConstraints() {
         mainScrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         mainScrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         mainScrollView.topAnchor.constraint(equalTo: topAnchor, constant: 45).isActive = true
         mainScrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25).isActive = true
-        addSubview(recommendationLabel)
+    }
+
+    private func setLabelConstraints() {
         recommendationLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         recommendationLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -256).isActive = true
         recommendationLabel.topAnchor.constraint(equalTo: topAnchor, constant: 9).isActive = true
         recommendationLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -246).isActive = true
-        addSubview(moreButton)
+    }
+
+    private func setMoreButtonConstraints() {
         moreButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 258).isActive = true
         moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         moreButton.topAnchor.constraint(equalTo: topAnchor, constant: 9).isActive = true

@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// ячейка одной истории
+/// View одной истории
 final class HistoryView: UIView {
     // MARK: - Constants
 
@@ -24,7 +24,7 @@ final class HistoryView: UIView {
 
     private let nikNameLabel: UILabel = {
         let label = UILabel()
-        label.font = Fonts.verdana8
+        label.font = UIFont.verdana8
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -45,10 +45,7 @@ final class HistoryView: UIView {
 
     convenience init(history: User) {
         self.init()
-        titleImageView.image = UIImage(named: history.imageName)
-        nikNameLabel.text = history.nikName
-        translatesAutoresizingMaskIntoConstraints = false
-        setConstraints()
+        setView(titleImage: history.imageName, nikname: history.nikName)
     }
 
     // MARK: - Public methods
@@ -60,18 +57,29 @@ final class HistoryView: UIView {
 
     // MARK: - Private methods
 
-    private func setConstraints() {
+    private func setView(titleImage: String, nikname: String) {
+        addSubviews()
+        titleImageView.image = UIImage(named: titleImage)
+        nikNameLabel.text = nikname
+        translatesAutoresizingMaskIntoConstraints = false
+        setConstraints()
+    }
+
+    private func addSubviews() {
         addSubview(titleImageView)
+        addSubview(nikNameLabel)
+        addSubview(plusButton)
+    }
+
+    private func setConstraints() {
         titleImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         titleImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
         titleImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         titleImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15).isActive = true
-        addSubview(nikNameLabel)
         nikNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
         nikNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
         nikNameLabel.topAnchor.constraint(equalTo: titleImageView.bottomAnchor, constant: 5).isActive = true
         nikNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        addSubview(plusButton)
         plusButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 52).isActive = true
         plusButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
         plusButton.topAnchor.constraint(equalTo: topAnchor, constant: 41).isActive = true

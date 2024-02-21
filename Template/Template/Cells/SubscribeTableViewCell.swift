@@ -18,7 +18,7 @@ final class SubscribeTableViewCell: UITableViewCell {
         )
     }
 
-    // MARK: - Static let
+    // MARK: - Types property
 
     static let reuseID = "SubscribeTableViewCell"
 
@@ -36,7 +36,7 @@ final class SubscribeTableViewCell: UITableViewCell {
         let label = UILabel()
         label.numberOfLines = 3
         label.adjustsFontSizeToFitWidth = true
-        label.font = Fonts.verdana12
+        label.font = UIFont.verdana12
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -48,7 +48,7 @@ final class SubscribeTableViewCell: UITableViewCell {
         button.tintColor = .white
         button.layer.cornerRadius = 8
         button.clipsToBounds = true
-        button.titleLabel?.font = Fonts.verdanaBold10
+        button.titleLabel?.font = UIFont.verdanaBold10
         button.layer.borderColor = UIColor.systemGray.cgColor
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -58,14 +58,27 @@ final class SubscribeTableViewCell: UITableViewCell {
 
     private var isSubscribe = false
 
+    // MARK: - Initializators
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
+        addSubviews()
+        setAvatarImageViewConstraints()
+        setActionLabelConstraints()
+        setSubscribeButtonConstraints()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
     // MARK: - Public methods
 
-    func setCell(comment: Comment) {
-        selectionStyle = .none
-        setConstraints()
+    func configureCell(comment: Comment) {
         avatarImageView.image = UIImage(named: comment.avatarImageName)
         actionLabel.attributedText = getAtributedText(
-            nik: comment.nikname,
+            nikname: comment.nikname,
             comment: comment.action.rawValue
         )
     }
@@ -73,38 +86,47 @@ final class SubscribeTableViewCell: UITableViewCell {
     // MARK: - Private methods
 
     private func getAtributedText(
-        nik: String,
+        nikname: String,
         comment: String
     ) -> NSAttributedString {
-        let fullText = "\(nik) \(comment)"
+        let fullText = "\(nikname) \(comment)"
 
         let attributedString = NSMutableAttributedString(string: fullText)
         attributedString.addAttribute(
             .foregroundColor,
             value: UIColor.black,
-            range: (fullText as NSString).range(of: nik)
+            range: (fullText as NSString).range(of: nikname)
         )
         attributedString.addAttribute(
             .font,
             value: UIFont.boldSystemFont(ofSize: 12),
-            range: (fullText as NSString).range(of: nik)
+            range: (fullText as NSString).range(of: nikname)
         )
         return attributedString
     }
 
-    private func setConstraints() {
-        contentView.heightAnchor.constraint(equalToConstant: 71).isActive = true
+    private func addSubviews() {
         addSubview(avatarImageView)
+        addSubview(actionLabel)
+        contentView.addSubview(subscribeButton)
+    }
+
+    private func setAvatarImageViewConstraints() {
+        contentView.heightAnchor.constraint(equalToConstant: 71).isActive = true
         avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         avatarImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -323).isActive = true
         avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         avatarImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -23).isActive = true
-        addSubview(actionLabel)
+    }
+
+    private func setActionLabelConstraints() {
         actionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 61).isActive = true
         actionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -160).isActive = true
         actionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
         actionLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -8).isActive = true
-        contentView.addSubview(subscribeButton)
+    }
+
+    private func setSubscribeButtonConstraints() {
         subscribeButton.addTarget(self, action: #selector(subscribe), for: .touchUpInside)
         subscribeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 223).isActive = true
         subscribeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
@@ -118,13 +140,12 @@ final class SubscribeTableViewCell: UITableViewCell {
             subscribeButton.tintColor = .gray
             subscribeButton.backgroundColor = .clear
             subscribeButton.layer.borderWidth = 2
-            isSubscribe.toggle()
         } else {
             subscribeButton.setTitle(Constants.subscribeTitle, for: .normal)
             subscribeButton.tintColor = .white
             subscribeButton.backgroundColor = Constants.subscribeButtonColor
             subscribeButton.layer.borderWidth = 0
-            isSubscribe.toggle()
         }
+        isSubscribe.toggle()
     }
 }

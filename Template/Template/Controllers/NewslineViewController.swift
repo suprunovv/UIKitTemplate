@@ -4,13 +4,7 @@
 import UIKit
 
 /// энам с шрифтами
-enum Fonts {
-    static let verdana8 = UIFont(name: "Verdana", size: 8)
-    static let verdanaBold10 = UIFont(name: "Verdana-Bold", size: 10)
-    static let verdanaBold12 = UIFont(name: "Verdana-Bold", size: 12)
-    static let verdana10 = UIFont(name: "Verdana", size: 10)
-    static let verdana12 = UIFont(name: "Verdana", size: 12)
-}
+enum Fonts {}
 
 /// контроллер экрана ленты
 final class NewslineViewController: UIViewController {
@@ -21,7 +15,14 @@ final class NewslineViewController: UIViewController {
         static let rightBarItemImage = UIImage(named: "smsImage")
     }
 
-    // MARK: - Private properties
+    enum CellType {
+        case storys
+        case firstPost
+        case recomendation
+        case secondPosts
+    }
+
+    // MARK: - Mok Data
 
     private let cellTypes: [CellType] = [.storys, .firstPost, .recomendation, .secondPosts]
 
@@ -155,7 +156,8 @@ final class NewslineViewController: UIViewController {
     }
 }
 
-/// Настройка датасорса таблицы
+// MARK: - NewslineViewController + Extension
+
 extension NewslineViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         cellTypes.count
@@ -178,29 +180,29 @@ extension NewslineViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "HistoryTableViewCell",
                 for: indexPath
-            ) as? HistoryTableViewCell else { fatalError() }
-            cell.setHistory(historys: historys)
+            ) as? HistoryTableViewCell else { return UITableViewCell() }
+            cell.configure(with: historys)
             return cell
         case .firstPost:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "PublicationTableViewCell",
                 for: indexPath
-            ) as? PublicationTableViewCell else { fatalError() }
-            cell.setCell(post: posts[0])
+            ) as? PublicationTableViewCell else { return UITableViewCell() }
+            cell.configureCell(post: posts[0])
             return cell
         case .recomendation:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "RecommendationsTabelCell",
                 for: indexPath
-            ) as? RecommendationsTabelCell else { fatalError() }
+            ) as? RecommendationsTabelCell else { return UITableViewCell() }
             cell.setRecommendation(profiles: profiles)
             return cell
         case .secondPosts:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: "PublicationTableViewCell",
                 for: indexPath
-            ) as? PublicationTableViewCell else { fatalError() }
-            cell.setCell(post: posts[indexPath.row + 1])
+            ) as? PublicationTableViewCell else { return UITableViewCell() }
+            cell.configureCell(post: posts[indexPath.row + 1])
             return cell
         }
     }

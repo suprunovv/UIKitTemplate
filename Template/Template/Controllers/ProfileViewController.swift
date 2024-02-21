@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// контроллер экрана профиль
+/// Kонтроллер экрана профиль
 final class ProfileViewController: UIViewController {
     // TODO: - В следующей таске буду делать
     override func viewDidLoad() {

@@ -17,7 +17,7 @@ final class HistoryTableViewCell: UITableViewCell {
 
     // MARK: - Public methods
 
-    func setHistory(historys: [HistoryView]) {
+    func configure(with historys: [HistoryView]) {
         setConstraints()
         contentView.heightAnchor.constraint(equalToConstant: 75).isActive = true
         selectionStyle = .none

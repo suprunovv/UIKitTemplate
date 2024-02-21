@@ -45,7 +45,7 @@ final class PublicationTableViewCell: UITableViewCell {
 
     private let niknameLabel: UILabel = {
         let label = UILabel()
-        label.font = Fonts.verdanaBold12
+        label.font = UIFont.verdanaBold12
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -53,14 +53,14 @@ final class PublicationTableViewCell: UITableViewCell {
 
     private let likedLabel: UILabel = {
         let label = UILabel()
-        label.font = Fonts.verdanaBold12
+        label.font = UIFont.verdanaBold12
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.font = Fonts.verdana12
+        label.font = UIFont.verdana12
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
         return label
@@ -117,14 +117,14 @@ final class PublicationTableViewCell: UITableViewCell {
         let textFiled = UITextField()
         textFiled.translatesAutoresizingMaskIntoConstraints = false
         textFiled.borderStyle = .none
-        textFiled.font = Fonts.verdana10
+        textFiled.font = UIFont.verdana10
         textFiled.placeholder = Constants.commentPlaceholder
         return textFiled
     }()
 
     private let timeOutLabel: UILabel = {
         let label = UILabel()
-        label.font = Fonts.verdana10
+        label.font = UIFont.verdana10
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "10 минут назад"
@@ -139,18 +139,29 @@ final class PublicationTableViewCell: UITableViewCell {
         return button
     }()
 
-    // MARK: - Public methods
-
-    func setCell(post: Post) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         contentView.heightAnchor.constraint(equalToConstant: 450).isActive = true
+        addSubviews()
         setConstraints()
+        setThirdConstraints()
+        setFourthConstraints()
         setSecondConstraints()
         setButtons()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+    // MARK: - Public methods
+
+    func configureCell(post: Post) {
         avatarImageView.image = UIImage(named: post.autorImageName)
         niknameLabel.text = post.autorNik
         descriptionLabel.attributedText = getAtributedText(
-            nik: post.autorNik,
+            nikname: post.autorNik,
             comment: post.postDescription
         )
         commentImageView.image = UIImage(named: post.myAvatar)
@@ -179,21 +190,21 @@ final class PublicationTableViewCell: UITableViewCell {
     // MARK: - Private methods
 
     private func getAtributedText(
-        nik: String,
+        nikname: String,
         comment: String
     ) -> NSAttributedString {
-        let fullText = "\(nik) \(comment)"
+        let fullText = "\(nikname) \(comment)"
 
         let attributedString = NSMutableAttributedString(string: fullText)
         attributedString.addAttribute(
             .foregroundColor,
             value: UIColor.black,
-            range: (fullText as NSString).range(of: nik)
+            range: (fullText as NSString).range(of: nikname)
         )
         attributedString.addAttribute(
             .font,
             value: UIFont.boldSystemFont(ofSize: 12),
-            range: (fullText as NSString).range(of: nik)
+            range: (fullText as NSString).range(of: nikname)
         )
 
         return attributedString
@@ -212,33 +223,44 @@ final class PublicationTableViewCell: UITableViewCell {
         }
     }
 
-    private func setConstraints() {
+    private func addSubviews() {
         addSubview(avatarImageView)
+        addSubview(niknameLabel)
+        contentView.addSubview(mainScrollView)
+        addSubview(likedLabel)
+        addSubview(bookMarkButton)
+        addSubview(descriptionLabel)
+        addSubview(commentImageView)
+        addSubview(moreButton)
+        addSubview(commentTextFiled)
+        addSubview(timeOutLabel)
+        addSubview(imagePageControl)
+    }
+
+    private func setConstraints() {
         avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         avatarImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -333).isActive = true
         avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
         avatarImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -401).isActive = true
-        addSubview(niknameLabel)
         niknameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48).isActive = true
         niknameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -220).isActive = true
         niknameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20).isActive = true
         niknameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -401).isActive = true
-        contentView.addSubview(mainScrollView)
         mainScrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         mainScrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         mainScrollView.topAnchor.constraint(equalTo: topAnchor, constant: 60).isActive = true
         mainScrollView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -152).isActive = true
-        addSubview(likedLabel)
+    }
+
+    private func setThirdConstraints() {
         likedLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 13).isActive = true
         likedLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -255).isActive = true
         likedLabel.topAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: 38).isActive = true
         likedLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -99).isActive = true
-        addSubview(bookMarkButton)
         bookMarkButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 343).isActive = true
         bookMarkButton.widthAnchor.constraint(equalToConstant: 24).isActive = true
         bookMarkButton.topAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: 8).isActive = true
         bookMarkButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -120).isActive = true
-        addSubview(descriptionLabel)
         descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 13).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 358).isActive = true
@@ -246,34 +268,33 @@ final class PublicationTableViewCell: UITableViewCell {
     }
 
     private func setSecondConstraints() {
-        addSubview(commentImageView)
         commentImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 13).isActive = true
         commentImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -342).isActive = true
         commentImageView.topAnchor.constraint(equalTo: topAnchor, constant: 392).isActive = true
         commentImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -39).isActive = true
-        addSubview(commentTextFiled)
         commentTextFiled.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 36).isActive = true
         commentTextFiled.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -189).isActive = true
         commentTextFiled.topAnchor.constraint(equalTo: topAnchor, constant: 394).isActive = true
         commentTextFiled.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -42).isActive = true
-        addSubview(timeOutLabel)
+    }
+
+    private func setFourthConstraints() {
         timeOutLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 13).isActive = true
         timeOutLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -212).isActive = true
         timeOutLabel.topAnchor.constraint(equalTo: topAnchor, constant: 416).isActive = true
         timeOutLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
-        addSubview(moreButton)
         moreButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 348).isActive = true
         moreButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -13).isActive = true
         moreButton.topAnchor.constraint(equalTo: topAnchor, constant: 32).isActive = true
         moreButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -413).isActive = true
-        addSubview(imagePageControl)
         imagePageControl.translatesAutoresizingMaskIntoConstraints = false
         imagePageControl.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         imagePageControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -120).isActive = true
     }
 }
 
-/// Расширение для настройки пейджа через делегат скроллВью
+// MARK: - PublicationTableViewCell + UIScrollViewDelegate
+
 extension PublicationTableViewCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(mainScrollView.contentOffset.x / mainScrollView.frame.width)

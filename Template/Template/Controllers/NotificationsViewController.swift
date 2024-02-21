@@ -3,6 +3,20 @@
 
 import UIKit
 
+/// Перечисление с возможными действиями в коментариях
+enum CommentAction: String {
+    case mention = "упомянул(-а) вас в комментарии:"
+    case like = "понравился ваш комментарий:"
+    case newFolder = "появился(-ась) в RMLink. Вы можете быть знакомы"
+}
+
+/// Перечисление секций
+enum NotificationSection {
+    case header
+    case toDay
+    case thisWeak
+}
+
 /// контроллер экрана уведомлений
 final class NotificationsViewController: UIViewController {
     // MARK: - Constants
@@ -11,13 +25,14 @@ final class NotificationsViewController: UIViewController {
         static let nilHeaderText = "Запросы на подписку"
         static let toDayHeaderText = "Сегодня"
         static let thisWeakHeaderText = "На этой неделе"
+        static let titleText = "Уведомления"
     }
 
     // MARK: - Private properties
 
     private let mainTabelView = UITableView()
     private let sections: [NotificationSection] = [.header, .toDay, .thisWeak]
-    private let cells: [NotificationCell] = [.empty, .comment, .subscribe]
+    private let cellTypes: [NotificationCell] = [.empty, .comment, .subscribe]
     private let notifications = [
         Comment(
             nikname: "Vlad228",
@@ -108,7 +123,7 @@ final class NotificationsViewController: UIViewController {
 
     private func setView() {
         view.backgroundColor = .white
-        navigationItem.title = "Уведомления"
+        navigationItem.title = Constants.titleText
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
@@ -134,7 +149,8 @@ final class NotificationsViewController: UIViewController {
     }
 }
 
-/// настройка таблицы через датасорс
+// MARK: - NotificationsViewController + Extension
+
 extension NotificationsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         sections.count
@@ -154,43 +170,37 @@ extension NotificationsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 1 {
-            let notification = todayNotifications[indexPath.row]
-            switch notification.type {
-            case .comment:
-                guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: CommentTableViewCell.reuseID,
-                    for: indexPath
-                ) as? CommentTableViewCell else { fatalError() }
-                cell.setCell(comment: notification)
-                return cell
-            case .subscribe:
-                guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: SubscribeTableViewCell.reuseID,
-                    for: indexPath
-                ) as? SubscribeTableViewCell else { fatalError() }
-                cell.setCell(comment: notification)
-                return cell
-            default: return UITableViewCell()
-            }
+            return getTabelViewCell(
+                notification: todayNotifications[indexPath.row],
+                indexPath: indexPath,
+                tableView: tableView
+            )
         } else {
-            let notification = thisWeakNotifications[indexPath.row]
-            switch notification.type {
-            case .comment:
-                guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: CommentTableViewCell.reuseID,
-                    for: indexPath
-                ) as? CommentTableViewCell else { fatalError() }
-                cell.setCell(comment: notification)
-                return cell
-            case .subscribe:
-                guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: SubscribeTableViewCell.reuseID,
-                    for: indexPath
-                ) as? SubscribeTableViewCell else { fatalError() }
-                cell.setCell(comment: notification)
-                return cell
-            default: return UITableViewCell()
-            }
+            return getTabelViewCell(
+                notification: thisWeakNotifications[indexPath.row],
+                indexPath: indexPath,
+                tableView: tableView
+            )
+        }
+    }
+
+    func getTabelViewCell(notification: Comment, indexPath: IndexPath, tableView: UITableView) -> UITableViewCell {
+        switch notification.type {
+        case .comment:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: CommentTableViewCell.reuseID,
+                for: indexPath
+            ) as? CommentTableViewCell else { return UITableViewCell() }
+            cell.configureCell(comment: notification)
+            return cell
+        case .subscribe:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: SubscribeTableViewCell.reuseID,
+                for: indexPath
+            ) as? SubscribeTableViewCell else { return UITableViewCell() }
+            cell.configureCell(comment: notification)
+            return cell
+        default: return UITableViewCell()
         }
     }
 
@@ -211,7 +221,8 @@ extension NotificationsViewController: UITableViewDataSource {
     }
 }
 
-/// настройка таблицы через делегат
+// MARK: - NotificationsViewController + Extension
+
 extension NotificationsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = sections[section]

@@ -3,11 +3,11 @@
 
 import UIKit
 
-/// ячейка рекомендованного профился
+/// View рекомендованного профился
 final class RecommendationProfileView: UIView {
     // MARK: - Constants
 
-    enum Constents {
+    enum Constants {
         static let closeImage = UIImage(systemName: "xmark")
         static let subscribeTitle = "Подписаться"
         static let subscribeColor = UIColor(
@@ -18,7 +18,7 @@ final class RecommendationProfileView: UIView {
         )
     }
 
-    // MARK: - Visual content
+    // MARK: - Visual Components
 
     private let titleImageView: UIImageView = {
         let imageView = UIImageView()
@@ -30,7 +30,7 @@ final class RecommendationProfileView: UIView {
 
     private let nikNameLabel: UILabel = {
         let label = UILabel()
-        label.font = Fonts.verdana8
+        label.font = UIFont.verdana8
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -38,7 +38,7 @@ final class RecommendationProfileView: UIView {
 
     private let closeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setBackgroundImage(Constents.closeImage, for: .normal)
+        button.setBackgroundImage(Constants.closeImage, for: .normal)
         button.tintColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -46,9 +46,9 @@ final class RecommendationProfileView: UIView {
 
     private let subscribeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle(Constents.subscribeTitle, for: .normal)
+        button.setTitle(Constants.subscribeTitle, for: .normal)
         button.tintColor = .white
-        button.backgroundColor = Constents.subscribeColor
+        button.backgroundColor = Constants.subscribeColor
         button.layer.cornerRadius = 8
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -58,32 +58,44 @@ final class RecommendationProfileView: UIView {
 
     convenience init(user: User) {
         self.init()
-        titleImageView.image = UIImage(named: user.imageName)
-        nikNameLabel.text = user.nikName
+        setView(titleImage: user.imageName, nikname: user.nikName)
+    }
+
+    private func setView(titleImage: String, nikname: String) {
+        titleImageView.image = UIImage(named: titleImage)
+        nikNameLabel.text = nikname
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .white
+        addSubviews()
         setConstraint()
+        setButtonsConstraints()
     }
 
     // MARK: - Private methods
 
-    private func setConstraint() {
+    private func addSubviews() {
         addSubview(titleImageView)
+        addSubview(nikNameLabel)
+        addSubview(subscribeButton)
+        addSubview(closeButton)
+    }
+
+    private func setConstraint() {
         titleImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35).isActive = true
         titleImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35).isActive = true
         titleImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15).isActive = true
         titleImageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -70).isActive = true
-        addSubview(nikNameLabel)
         nikNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 42).isActive = true
         nikNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -42).isActive = true
         nikNameLabel.topAnchor.constraint(equalTo: titleImageView.bottomAnchor, constant: 5).isActive = true
         nikNameLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -53).isActive = true
-        addSubview(subscribeButton)
+    }
+
+    private func setButtonsConstraints() {
         subscribeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         subscribeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         subscribeButton.topAnchor.constraint(equalTo: nikNameLabel.bottomAnchor, constant: 9).isActive = true
         subscribeButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -14).isActive = true
-        addSubview(closeButton)
         closeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 167).isActive = true
         closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -6).isActive = true
         closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 6).isActive = true
