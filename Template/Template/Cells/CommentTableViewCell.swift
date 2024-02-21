@@ -22,6 +22,7 @@ final class CommentTableViewCell: UITableViewCell {
     private let actionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true
         label.font = Fonts.verdana12
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -36,11 +37,45 @@ final class CommentTableViewCell: UITableViewCell {
         selectionStyle = .none
         heightAnchor.constraint(equalToConstant: 56).isActive = true
         avatarImageView.image = UIImage(named: comment.avatarImageName)
-        actionLabel.text = "\(comment.nikname) \(comment.action.rawValue)  \(comment.comment) \(comment.time)"
+//        actionLabel.text = "\(comment.nikname) \(comment.action.rawValue)  \(comment.comment) \(comment.time)"
+        actionLabel.attributedText = getAtributedText(
+            nik: comment.nikname,
+            action: comment.action.rawValue,
+            comment: comment.comment,
+            time: comment.time
+        )
         likedImageImageView.image = UIImage(named: comment.postImageName)
     }
 
     // MARK: - Private methods
+
+    private func getAtributedText(
+        nik: String,
+        action: String,
+        comment: String,
+        time: String
+    ) -> NSAttributedString {
+        let fullText = "\(nik) \(action) \(comment) \(time)"
+
+        let attributedString = NSMutableAttributedString(string: fullText)
+        attributedString.addAttribute(
+            .foregroundColor,
+            value: UIColor.black,
+            range: (fullText as NSString).range(of: nik)
+        )
+        attributedString.addAttribute(
+            .font,
+            value: UIFont.boldSystemFont(ofSize: 12),
+            range: (fullText as NSString).range(of: nik)
+        )
+
+        attributedString.addAttribute(
+            .foregroundColor,
+            value: UIColor.gray,
+            range: (fullText as NSString).range(of: time)
+        )
+        return attributedString
+    }
 
     private func setConstraints() {
         addSubview(avatarImageView)

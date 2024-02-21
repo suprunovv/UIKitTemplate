@@ -149,7 +149,10 @@ final class PublicationTableViewCell: UITableViewCell {
         setButtons()
         avatarImageView.image = UIImage(named: post.autorImageName)
         niknameLabel.text = post.autorNik
-        descriptionLabel.text = "\(post.autorNik) \(post.postDescription)"
+        descriptionLabel.attributedText = getAtributedText(
+            nik: post.autorNik,
+            comment: post.postDescription
+        )
         commentImageView.image = UIImage(named: post.myAvatar)
         likedLabel.text = "Нравится: \(post.likeCount)"
         imagePageControl.numberOfPages = post.postImageNames.count
@@ -174,6 +177,27 @@ final class PublicationTableViewCell: UITableViewCell {
     }
 
     // MARK: - Private methods
+
+    private func getAtributedText(
+        nik: String,
+        comment: String
+    ) -> NSAttributedString {
+        let fullText = "\(nik) \(comment)"
+
+        let attributedString = NSMutableAttributedString(string: fullText)
+        attributedString.addAttribute(
+            .foregroundColor,
+            value: UIColor.black,
+            range: (fullText as NSString).range(of: nik)
+        )
+        attributedString.addAttribute(
+            .font,
+            value: UIFont.boldSystemFont(ofSize: 12),
+            range: (fullText as NSString).range(of: nik)
+        )
+
+        return attributedString
+    }
 
     private func setButtons() {
         let buttons = [likeButton, commentButton, shareButton]

@@ -35,6 +35,7 @@ final class SubscribeTableViewCell: UITableViewCell {
     private let actionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 3
+        label.adjustsFontSizeToFitWidth = true
         label.font = Fonts.verdana12
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -63,10 +64,33 @@ final class SubscribeTableViewCell: UITableViewCell {
         selectionStyle = .none
         setConstraints()
         avatarImageView.image = UIImage(named: comment.avatarImageName)
-        actionLabel.text = "\(comment.nikname) \(comment.action.rawValue)  \(comment.time)"
+        actionLabel.attributedText = getAtributedText(
+            nik: comment.nikname,
+            comment: comment.action.rawValue
+        )
     }
 
     // MARK: - Private methods
+
+    private func getAtributedText(
+        nik: String,
+        comment: String
+    ) -> NSAttributedString {
+        let fullText = "\(nik) \(comment)"
+
+        let attributedString = NSMutableAttributedString(string: fullText)
+        attributedString.addAttribute(
+            .foregroundColor,
+            value: UIColor.black,
+            range: (fullText as NSString).range(of: nik)
+        )
+        attributedString.addAttribute(
+            .font,
+            value: UIFont.boldSystemFont(ofSize: 12),
+            range: (fullText as NSString).range(of: nik)
+        )
+        return attributedString
+    }
 
     private func setConstraints() {
         contentView.heightAnchor.constraint(equalToConstant: 71).isActive = true
