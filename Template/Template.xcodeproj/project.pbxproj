@@ -7,19 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5225A5672B8A4F850088D733 /* StackTrafficLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225A5662B8A4F850088D733 /* StackTrafficLightViewController.swift */; };
+		5225A5692B8A4F990088D733 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5225A5682B8A4F990088D733 /* StartViewController.swift */; };
+		52A65EF42B8BC66F001EF2E0 /* AnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A65EF32B8BC66F001EF2E0 /* AnchorViewController.swift */; };
+		52A65EF62B8BE5AE001EF2E0 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A65EF52B8BE5AE001EF2E0 /* ColorView.swift */; };
+		52A65EF82B8C1234001EF2E0 /* NSLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A65EF72B8C1234001EF2E0 /* NSLayoutViewController.swift */; };
 		52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F062B71A3EB00B764D2 /* AppDelegate.swift */; };
 		52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */; };
-		52E87F0B2B71A3EB00B764D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F0A2B71A3EB00B764D2 /* ViewController.swift */; };
+		52E87F0B2B71A3EB00B764D2 /* StroyboardTrafficLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E87F0A2B71A3EB00B764D2 /* StroyboardTrafficLightViewController.swift */; };
 		52E87F0E2B71A3EB00B764D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F0C2B71A3EB00B764D2 /* Main.storyboard */; };
 		52E87F102B71A3EE00B764D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */; };
 		52E87F132B71A3EE00B764D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52E87F112B71A3EE00B764D2 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5225A5662B8A4F850088D733 /* StackTrafficLightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTrafficLightViewController.swift; sourceTree = "<group>"; };
+		5225A5682B8A4F990088D733 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		52A65EF32B8BC66F001EF2E0 /* AnchorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
+		52A65EF52B8BE5AE001EF2E0 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		52A65EF72B8C1234001EF2E0 /* NSLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutViewController.swift; sourceTree = "<group>"; };
 		52E87F032B71A3EB00B764D2 /* Template.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Template.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E87F062B71A3EB00B764D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		52E87F0A2B71A3EB00B764D2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		52E87F0A2B71A3EB00B764D2 /* StroyboardTrafficLightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StroyboardTrafficLightViewController.swift; sourceTree = "<group>"; };
 		52E87F0D2B71A3EB00B764D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52E87F122B71A3EE00B764D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +68,12 @@
 			children = (
 				52E87F062B71A3EB00B764D2 /* AppDelegate.swift */,
 				52E87F082B71A3EB00B764D2 /* SceneDelegate.swift */,
-				52E87F0A2B71A3EB00B764D2 /* ViewController.swift */,
+				5225A5682B8A4F990088D733 /* StartViewController.swift */,
+				52A65EF72B8C1234001EF2E0 /* NSLayoutViewController.swift */,
+				5225A5662B8A4F850088D733 /* StackTrafficLightViewController.swift */,
+				52E87F0A2B71A3EB00B764D2 /* StroyboardTrafficLightViewController.swift */,
+				52A65EF32B8BC66F001EF2E0 /* AnchorViewController.swift */,
+				52A65EF52B8BE5AE001EF2E0 /* ColorView.swift */,
 				52E87F0C2B71A3EB00B764D2 /* Main.storyboard */,
 				52E87F0F2B71A3EE00B764D2 /* Assets.xcassets */,
 				52E87F112B71A3EE00B764D2 /* LaunchScreen.storyboard */,
@@ -183,8 +198,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52E87F0B2B71A3EB00B764D2 /* ViewController.swift in Sources */,
+				5225A5692B8A4F990088D733 /* StartViewController.swift in Sources */,
+				52E87F0B2B71A3EB00B764D2 /* StroyboardTrafficLightViewController.swift in Sources */,
+				52A65EF62B8BE5AE001EF2E0 /* ColorView.swift in Sources */,
 				52E87F072B71A3EB00B764D2 /* AppDelegate.swift in Sources */,
+				52A65EF42B8BC66F001EF2E0 /* AnchorViewController.swift in Sources */,
+				52A65EF82B8C1234001EF2E0 /* NSLayoutViewController.swift in Sources */,
+				5225A5672B8A4F850088D733 /* StackTrafficLightViewController.swift in Sources */,
 				52E87F092B71A3EB00B764D2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
